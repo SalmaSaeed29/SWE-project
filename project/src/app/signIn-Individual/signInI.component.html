@@ -1,0 +1,117 @@
+<router-outlet>
+    <html>
+      <head>
+        <title>signIn Individual</title>
+      </head>
+      <body>  
+        <div class="sign-in-I">
+          <form>
+            <legend class="title">Sign In</legend>
+            <label class="i" for="id">ID</label>
+            <input v-model = "id" type="id" autofocus="autofocus" placeholder="**************" id="id"><br>
+            <label class="i" for="password">Password</label>
+            <input v-model = "password" type="password" placeholder="Enter 8 characters or more" id="password"><br>
+          </form>
+          <div class="buttons">
+            <nav>
+              <button id="profI">Next</button>
+              <div>Do not have an account yet?</div>
+              <button id="signUpI">Sign Up</button>
+            </nav>
+            
+          </div>
+        </div>
+      </body>
+    </html>
+  </router-outlet>
+    
+    
+  <style scoped>
+    * {
+      margin: 0;
+      padding: 0;
+      font-size: 18px;
+    }
+  
+    body {
+      background-image: url("../blood.jpg");
+      background-repeat: no-repeat;
+      background-attachment: absolute;
+      background-size: 40% 100%;
+      background-position: right;
+      height: 300px;
+
+    }
+
+    .title{
+        background-color: white;
+        border-color: #701010;
+        border-style: solid;
+        padding: 20px 70px;
+        margin-left: 30%;
+        margin-top: -20%;
+        color: #701010;
+        width: 150px;
+        height: 70px;
+        text-align: center;
+        font-size: 50PX;
+      }
+  
+    .sign-in-I{
+      margin: 250px;
+      display: flex;
+      flex-direction: column;
+    }
+  
+    .sign-in-I .i{
+      background-color: #701010;
+      display: inline-block;
+      padding: 8px 8px;
+      margin: 10px;
+      font-size: 20px;
+      color: #fff;
+      width: 130px;
+      text-align: center;
+    }
+    
+    input[type="checkbox"] {
+      margin-right: 10px;
+    }
+  
+    input {
+      height: 25px;
+      background-color: white;
+      font-size: 15px;
+      padding: 12px 20px;
+      margin: 8px 0;
+      box-sizing: border-box;
+      border: 2px solid #701010;
+      border-radius: 4px;
+    }
+    .buttons {
+      flex-direction: row;
+      justify-content: left;
+    }
+  
+    button{
+      width: 90px;
+      height: 45px;
+      margin-left: 250px;
+      margin-top: 20px;
+      border: solid #701010 2px;
+      border-radius: 5px;
+      background-color: #701010;
+      color: white;
+      font-size: 20px;
+      outline: none;
+      cursor:pointer;
+      display: block;
+    }
+  
+    button:hover {
+      transition-duration: 0.4s;
+      color: #701010;
+      background-color: white;
+    }
+    
+    </style>

@@ -1,0 +1,72 @@
+<router-outlet>
+  <html>
+    <head>
+      <title>welcome page</title>
+    </head>
+    <body>  
+      <div class="home">
+        <div class="savior">Savior</div>
+        <div class="buttons">
+          <nav>
+            <button id="signInA" routerLink="/signInA"  routerLinkActive="active">Authority</button>
+            <button id="signInI" routerLink="/signInI"  routerLinkActive="active">Individual</button>
+          </nav>
+          
+        </div>
+      </div>
+    </body>
+  </html>
+</router-outlet>
+  
+  
+  <style scoped>
+    * {
+      margin: 0;
+      padding: 0;
+      font-size: 20px;
+    }
+  
+    body {
+      background-image: url("../blood.jpg");
+      background-repeat: no-repeat;
+    }
+  
+    .savior{
+      font-family: serif;
+      display: flex;
+      flex-direction: column;
+      display: inline-block;
+      padding: 0px 100px 0px 500px;
+      margin: 50px;
+      font-size: 100px;
+      color: #701010;
+      width: 130px;
+      text-align: center;
+    }
+
+    .buttons {
+      flex-direction:row;
+      justify-content:center;
+    }
+  
+    button{
+      padding: 30px 15px;
+      margin-left: 350px;
+      margin-top: 100px;
+      border: solid #701010 2px;
+      border-radius: 20px;
+      background-color: #701010;
+      color: white;
+      font-size: 30px;
+      outline: none;
+      cursor:pointer;
+      float: left;
+    }
+  
+    button:hover {
+      transition-duration: 0.4s;
+      color: #701010;
+      background-color: white;
+    }
+  
+ </style>

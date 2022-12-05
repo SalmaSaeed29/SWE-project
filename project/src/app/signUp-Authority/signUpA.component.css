@@ -1,27 +1,24 @@
 /*person sign up page*/
-.containerSign
+/* .containerSign
 {
-    height: 100vh;
-    background-image: url(/imgs/16262045_tp227-facebookeventcover-03.jpg);
+    height: 130vh;
+    background-image: url(../imgs/sign.jpg);
     background-position: center center;
     background-size: cover;
-}
-.signimg{
-    background-color: aqua;
-}
-
-.signContent{
-    position: relative;
-    padding-top: 100px;
-    padding-left: 150px;
 }
     
 .btn-go{
     color: red;
     text-align: left;
+    margin-top: 2px;
 }
 p{
     color: rgb(186, 0, 0);
     font-weight: 700;
     font-size: 30px;
 }
+.signContent{
+    position: relative;
+    padding-top: 50px;
+    padding-left: 100px; 
+}*/

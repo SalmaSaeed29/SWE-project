@@ -1,3 +1,40 @@
+<!-- <router-outlet>
+  <html>
+
+  <head>
+    <title>signIn Authority</title>
+  </head>
+
+  <body>
+
+    <div class="containerSign">
+      <div class="signContent ">
+        <div class="card border-danger p-5" style="max-width: 400px;">
+          <p>Sign in for Authority</p>
+          <div class="mb-3">
+            <label for="email" class="form-label">E-mail</label>
+            <input type="email" class="form-control" id="email" placeholder="name@example.com">
+          </div>
+          <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input type="password" class="form-control" id="password" placeholder="*************">
+          </div>
+          <button type="submit" class="btn btn-danger" style="max-width: 100px;" id="btnSubmit" routerLink="/signUpA" routerLinkActive="active">Submit</button>
+          <a href="" class="btn btn-link btn-go" routerLink="/signUpA" routerLinkActive="active">Do not have an account
+            yet?</a>
+          <a href="" class="btn btn-link btn-go" routerLink="/signInI" routerLinkActive="active">sign in for individual</a>
+          <a href="" class="btn btn-link btn-go" routerLink="/signUpI" routerLinkActive="active">sign up for individual</a>
+        </div>
+      </div>
+    </div>
+  </body>
+
+  </html>
+</router-outlet> -->
+
+
+
+
 <router-outlet>
     <html>
       <head>
@@ -14,9 +51,9 @@
           </form>
           <div class="buttons">
             <nav>
-              <button id="profA">Next</button>
+              <button (click)="signInA()" id="profA">Next</button>
               <div>Do not have an account yet?</div>
-              <button id="signUpA">Sign Up</button>
+              <button id="signUpA" routerLink="/signUpA" routerLinkActive="active">Sign Up</button>
             </nav>
             
           </div>

@@ -10,6 +10,10 @@ import { signInAComponent } from './signIn-Authority/signInA.component'
 import { signInIComponent } from './signIn-Individual/signInI.component'
 import { signUpAComponent } from './signUp-Authority/signUpA.component'
 import { signUpIComponent } from './signUp-Individual/signUpI.component'
+import { profileAComponent } from './profile-Authority/profileA.component'
+import { profileIComponent } from './profile-Individual/profileI.component'
+import { EditAComponent } from './Edit-Profile-Authority/EditA.component'
+import { EditIComponent } from './Edit-Profile-Individual/EditI.component'
 
 @NgModule({
   declarations: [
@@ -18,7 +22,11 @@ import { signUpIComponent } from './signUp-Individual/signUpI.component'
     signInAComponent,
     signInIComponent,
     signUpAComponent,
-    signUpIComponent
+    signUpIComponent,
+    profileAComponent,
+    profileIComponent,
+    EditAComponent,
+    EditIComponent
   ],
   imports: [
     BrowserModule,

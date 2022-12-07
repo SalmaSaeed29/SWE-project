@@ -18,6 +18,8 @@ export class signInAComponent implements OnInit {
   Password: any = ''
   returnedValue: any
 
+  response: any = ''
+
   addEmail(){
     const inputEmail = (<HTMLInputElement>document.getElementById('email'))
     this.Email = inputEmail.value
@@ -31,7 +33,7 @@ export class signInAComponent implements OnInit {
   }
 
   SIGNIN_A(Email:string, Password:string){
-    this.http.get('http://localhost:3030/savior/signInA',{
+    this.http.get('http://localhost:6060/Savior/signInA',{
       responseType:'text',
       params:{
         email: Email,
@@ -39,9 +41,9 @@ export class signInAComponent implements OnInit {
       },
       observe:'response'
     }).subscribe(response=>{
-      this.returnedValue = response.body
-      console.log(this.returnedValue)
-      if(this.returnedValue === ''){
+      this.response = response.body
+      console.log(this.response)
+      if(this.response === "False"){
         alert("WRONG email or password!")
       }
       else{
@@ -54,7 +56,7 @@ export class signInAComponent implements OnInit {
     this.addEmail()
     this.addPassword()
     this.SIGNIN_A(this.Email, this.Password);
-    console.log(this.returnedValue)
+    console.log(this.response)
   }
 
 }

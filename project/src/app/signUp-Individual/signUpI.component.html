@@ -82,7 +82,7 @@
 </head>
 
 <body>
-    <div class="sign-up-A ">
+    <div class="sign-up-I">
         <form>
             <legend class="title">Sign Up</legend>
             <div>
@@ -128,7 +128,7 @@
                     <option>Al Suez</option>
                     <option>Al Fayoum</option>
                 </select>
-                <button type="submit">Submit</button>
+                <button (click)="NEXT()" type="submit" class="btn btn-danger" style="max-width: 100px;" id="btnSubmit">Submit</button>
             </div>
         </form>
     </div>
@@ -167,13 +167,13 @@
         font-size: 50PX;
       }
   
-      .sign-up-A{
+      .sign-up-I{
       margin: 250px;
       display: flex;
       flex-direction: column;
     }
   
-    .sign-up-A .l{
+    .sign-up-I .l{
       background-color: #701010;
       display: inline-block;
       padding: 8px 8px;

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import * as internal from 'stream';
 
 @Component({
   selector: 'app-signUp-Individual',
@@ -23,10 +24,10 @@ export class signUpIComponent implements OnInit {
   Address: any = ''
   City: any = ''
 
-  info: any
   response: any = ''
 
   addName(){
+    console.log("d5lt")
     const inputName = (<HTMLInputElement>document.getElementById('name'))
     this.Name = inputName.value
     console.log(this.Name)
@@ -75,15 +76,15 @@ export class signUpIComponent implements OnInit {
   }
 
   validation(){
-    if(this.Name==''){
-      alert('Incomplete name')
+    if(this.Name=='' || this.Address==''){
+      alert('Incomplete information')
       return false
     }
-    else if(this.ID.length<6 && this.Pass.length<8){
+    else if(this.ID.length!=6 && this.Pass.length<8){
       alert('INVALID ID and PASSWORD');
       return false
     }
-    else if(this.ID.length<6){
+    else if(this.ID.length!=6){
       alert('INVALID ID');
       return false
     }
@@ -94,49 +95,26 @@ export class signUpIComponent implements OnInit {
     return true
   }
 
-  INFO(): string{
-    this.addName()
-    this.addID()
-    this.addPassword()
-    this.addBloodType()
-    this.addAge()
-    this.addWeight()
-    this.addAddress()
-    this.addCity()
-
-    var user = new Map<string, string>();
-    user.set("Name" ,this.Name);
-    user.set("ID" ,this.ID);
-    user.set("Blood Type", this.BloodType)
-    user.set("Age", this.Age)
-    user.set("Weight", this.Weight)
-    user.set("Password", this.Pass);
-    user.set("Address", this.Address);
-    user.set("City", this.City);
-
-   let result = Object.fromEntries(user);
-   this.info = JSON.stringify(result)
-   console.log(this.info)
-    return this.info
-  }
-
-  SIGNUP(Info: string){
+  SIGNUP_I(ID: any, Password: string, Name: any, Age: any, Weight: any, BloodType: string, Address: string){
     console.log("SIGNUP calling")
-    this.http.get('http://localhost:4200/savior/signUpA',{  //this link is determined on back
+    this.http.get('http://localhost:6060/savior/signUpI',{ 
       responseType:'text',
       params:{
-        info: Info
+        id: ID,
+        pass: Password,
+        name: Name,
+        age: Age,
+        weight: Weight,
+        BT: BloodType,
+        adrs: Address,
       },
       observe:'response'
     }).subscribe(response=>{
       this.response = response.body
       console.log(this.response)
 
-      if(this.validation() && this.response=="Done"){
-        this.router.navigateByUrl('/profileA')
-      }
-      else if(!this.validation()){
-        console.log("validation return false")
+      if(this.response=="Done"){
+        this.router.navigateByUrl('/profileI')
       }
       else if(this.response==""){
         console.log("has not received Done from back")
@@ -148,17 +126,27 @@ export class signUpIComponent implements OnInit {
     })
   }
 
+  INFO_I(){
+    this.addName();
+    this.addID();
+    this.addPassword();
+    this.addBloodType();
+    this.addAge();
+    this.addWeight();
+    this.addAddress();
+    this.addCity();
+  }
+
   NEXT(){
-    this.INFO()
+    this.INFO_I()
     if(this.validation()){
       console.log('valid');
+      this.SIGNUP_I(this.ID, this.Pass, this.Name, this.Age, this.Weight, this.BloodType, this.Address)
     }
     else{
       console.log("not valid")
+      alert("INVALID!")
     }
-    // console.log(this.response);
-    // this.SIGNUP(this.INFO());
-    // console.log(this.response);
   }
 
 }

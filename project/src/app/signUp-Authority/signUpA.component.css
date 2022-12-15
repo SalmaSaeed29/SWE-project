@@ -1,7 +1,7 @@
 /*person sign up page*/
 .containerSign
 {
-    height: 270vh;
+    height: 100vh;
     background-image: url(../imgs/sign.jpg);
     background-position: center center;
     background-size: cover;
@@ -22,32 +22,9 @@ p{
     padding-top: 50px;
     padding-left: 50px;
 }
+.scroll-container{
+    height: 90vh;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+  }
 
-
-
-
-
-/*person sign up page*/
-/* .containerSign
-{
-    height: 130vh;
-    background-image: url(../imgs/sign.jpg);
-    background-position: center center;
-    background-size: cover;
-}
-    
-.btn-go{
-    color: red;
-    text-align: left;
-    margin-top: 2px;
-}
-p{
-    color: rgb(186, 0, 0);
-    font-weight: 700;
-    font-size: 30px;
-}
-.signContent{
-    position: relative;
-    padding-top: 50px;
-    padding-left: 100px; 
-}*/

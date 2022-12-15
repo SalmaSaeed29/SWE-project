@@ -6,8 +6,8 @@ import { signInIComponent } from './signIn-Individual/signInI.component'
 import { signUpAComponent } from './signUp-Authority/signUpA.component'
 import { signUpIComponent } from './signUp-Individual/signUpI.component'
 import { profileAComponent } from './profile-Authority/profileA.component'
-import { profileIComponent } from './profile-Individual/profileI.component'
-import { EditAComponent } from './Edit-Profile-Authority/EditA.component'
+import{ profileIComponent } from './profil-Individual/profileI.component'
+import { EditAComponent } from './Edit-profile-Authority/EditA.component'
 import { EditIComponent } from './Edit-Profile-Individual/EditI.component'
 
 const routes: Routes = [

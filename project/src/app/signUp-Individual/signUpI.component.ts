@@ -46,7 +46,7 @@ export class signUpIComponent implements OnInit {
   }
 
   addBloodType(){
-    const inputType = (<HTMLInputElement>document.getElementById('type'))
+    const inputType = (<HTMLInputElement>document.getElementById('bType'))
     this.BloodType = inputType.value
     console.log(this.BloodType)
   }
@@ -76,7 +76,7 @@ export class signUpIComponent implements OnInit {
   }
 
   validation(){
-    if(this.Name=='' || this.Address==''){
+    if(this.Name==''||this.Address==''||this.Age==''||this.BloodType==''||this.City==''||this.Weight==''){
       alert('Incomplete information')
       return false
     }
@@ -114,7 +114,7 @@ export class signUpIComponent implements OnInit {
       console.log(this.response)
 
       if(this.response=="Done"){
-        this.router.navigateByUrl('/profileI')
+        this.router.navigateByUrl('/welcome')
       }
       else if(this.response==""){
         console.log("has not received Done from back")
@@ -145,7 +145,7 @@ export class signUpIComponent implements OnInit {
     }
     else{
       console.log("not valid")
-      alert("INVALID!")
+      //alert("INVALID!")
     }
   }
 

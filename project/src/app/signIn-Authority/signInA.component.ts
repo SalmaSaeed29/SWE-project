@@ -32,8 +32,24 @@ export class signInAComponent implements OnInit {
     console.log(this.Password)
   }
 
+  validation(){
+    if(this.Email.length<6 && this.Password.length<8){
+      alert('INVALID ID and PASSWORD');
+      return false
+    }
+    else if(this.Email.length<6){
+      alert('INVALID ID');
+      return false
+    }
+    else if(this.Password.length<8){
+      alert('INVALID PASSWORD');
+      return false
+    }
+    return true
+  }
+
   SIGNIN_A(Email:string, Password:string){
-    this.http.get('http://localhost:6060/Savior/signInA',{
+    this.http.get('http://localhost:6060/savior/signInA',{
       responseType:'text',
       params:{
         email: Email,
@@ -42,11 +58,11 @@ export class signInAComponent implements OnInit {
       observe:'response'
     }).subscribe(response=>{
       this.response = response.body
-      console.log(this.response)
+      console.log("the response from sign in: " + this.response)
       if(this.response === "False"){
         alert("WRONG email or password!")
       }
-      else{
+      else if(this.response == "True"){
         this.router.navigateByUrl("/profileA")
       }
     })
@@ -55,8 +71,13 @@ export class signInAComponent implements OnInit {
   signInA(){
     this.addEmail()
     this.addPassword()
-    this.SIGNIN_A(this.Email, this.Password);
-    console.log(this.response)
+    if(this.validation()){
+      console.log("valid sign in")
+      this.SIGNIN_A(this.Email, this.Password);
+    }
+    else{
+      console.log("invalid sign in")
+    }
   }
 
 }

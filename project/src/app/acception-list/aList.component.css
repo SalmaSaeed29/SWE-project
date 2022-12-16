@@ -1,0 +1,25 @@
+nav{
+    font-size: larger;
+}
+.savi{
+    font-size: xx-large;
+    font-weight: 600;
+}
+.containerAcc{
+    height: 89.5vh;
+    background-image: url(../imgs/world-blood-donor-day-creative-collage.jpg);
+    background-position: center center;
+    background-size: cover;
+    
+}
+.proContent{
+    padding: 50px;
+}
+button{
+    width: 100px;
+}
+.scroll-container{
+    height: 73vh;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+  }

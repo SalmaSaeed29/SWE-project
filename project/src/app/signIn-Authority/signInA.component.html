@@ -19,7 +19,7 @@
             <label for="password" class="form-label">Password</label>
             <input type="password" class="form-control" id="password" placeholder="*************">
           </div>
-          <button type="submit" class="btn btn-danger" style="max-width: 100px;" id="btnSubmit" routerLink="/signUpA" routerLinkActive="active">Submit</button>
+          <button type="submit" (click)="signInA()" class="btn btn-danger" style="max-width: 100px;" id="btnSubmit">Submit</button>
           <a href="" class="btn btn-link btn-go" routerLink="/signUpA" routerLinkActive="active">Do not have an account
             yet?</a>
           <a href="" class="btn btn-link btn-go" routerLink="/signInI" routerLinkActive="active">sign in for individual</a>

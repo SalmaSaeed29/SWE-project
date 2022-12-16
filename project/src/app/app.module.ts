@@ -10,9 +10,14 @@ import { signInIComponent } from './signIn-Individual/signInI.component'
 import { signUpAComponent } from './signUp-Authority/signUpA.component'
 import { signUpIComponent } from './signUp-Individual/signUpI.component'
 import { profileAComponent } from './profile-Authority/profileA.component'
-import { profileIComponent } from './profil-Individual/profileI.component'
+import { profileIComponent } from './profile-Individual/profileI.component'
 import { EditAComponent } from './Edit-profile-Authority/EditA.component'
-import { EditIComponent } from './Edit-Profile-Individual/EditI.component';
+import { EditIComponent } from './Edit-Profile-Individual/EditI.component'
+import { WelcomeComponent } from './welcome/welcome.component'
+import { ThankComponent } from './thankDonation/thank.component'
+import { DonationComponent } from './donation/donation.component'
+import { AcceptionListComponent } from './acception-list/aList.component'
+import { DonationListComponent } from './donation-list/dList.component'
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
 
 @NgModule({
@@ -26,7 +31,12 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
     profileAComponent,
     profileIComponent,
     EditAComponent,
-    EditIComponent
+    EditIComponent,
+    WelcomeComponent,
+    ThankComponent,
+    DonationComponent,
+    AcceptionListComponent,
+    DonationListComponent
   ],
   imports: [
     BrowserModule,

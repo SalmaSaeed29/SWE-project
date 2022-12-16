@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import { appendFile } from 'fs';
 
 @Component({
   selector: 'app-signIn-Individual',
@@ -31,6 +32,22 @@ export class signInIComponent implements OnInit {
     console.log(this.Password)
   }
 
+  validation(){
+    if(this.ID.length!=6 && this.Password.length<8){
+      alert('INVALID ID and PASSWORD');
+      return false
+    }
+    else if(this.ID.length!=6){
+      alert('INVALID ID');
+      return false
+    }
+    else if(this.Password.length<8){
+      alert('INVALID PASSWORD');
+      return false
+    }
+    return true
+  }
+
   SIGNIN_I(ID:string, Password:string){
     this.http.get('http://localhost:6060/Savior/signInI',{
       responseType:'text',
@@ -46,15 +63,21 @@ export class signInIComponent implements OnInit {
         alert("WRONG id or password!")
       }
       else{
-        this.router.navigateByUrl("/profileI")
+        this.router.navigateByUrl("/welcome")
       }
     })
   }
 
-  signInA(){
+  signInI(){
     this.addID()
     this.addPassword()
-    this.SIGNIN_I(this.ID, this.Password);
+    if(this.validation()){
+      console.log("valid sign in")
+      this.SIGNIN_I(this.ID, this.Password);
+    }
+    else{
+      console.log("invalid sign in");
+    }
   }
 
 }

@@ -202,7 +202,7 @@ export class signUpAComponent implements OnInit {
   }
 
   validation(){
-    if(this.Name=='' || this.Address==''){
+    if(this.Name==''||this.Address==''||this.City==''||this.Email==''||this.Pass==''){
       alert('Incomplete information')
       return false
     }
@@ -262,6 +262,7 @@ export class signUpAComponent implements OnInit {
     this.addEmail();
     this.addPassword();
     this.addAddress();
+    this.addCity()
     this.addWFrom();
     this.addWTo();
     this.addDAFrom();

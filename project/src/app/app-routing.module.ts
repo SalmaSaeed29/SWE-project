@@ -6,9 +6,14 @@ import { signInIComponent } from './signIn-Individual/signInI.component'
 import { signUpAComponent } from './signUp-Authority/signUpA.component'
 import { signUpIComponent } from './signUp-Individual/signUpI.component'
 import { profileAComponent } from './profile-Authority/profileA.component'
-import{ profileIComponent } from './profil-Individual/profileI.component'
+import { profileIComponent } from './profile-Individual/profileI.component'
 import { EditAComponent } from './Edit-profile-Authority/EditA.component'
 import { EditIComponent } from './Edit-Profile-Individual/EditI.component'
+import { WelcomeComponent } from './welcome/welcome.component'
+import { ThankComponent } from './thankDonation/thank.component'
+import { DonationComponent } from './donation/donation.component'
+import { AcceptionListComponent } from './acception-list/aList.component'
+import { DonationListComponent } from './donation-list/dList.component'
 
 const routes: Routes = [
   { path: '' ,redirectTo: 'home' , pathMatch: 'full' },
@@ -20,7 +25,12 @@ const routes: Routes = [
   { path: 'profileA', component:profileAComponent},
   { path: 'profileI', component:profileIComponent},
   { path: 'EditA', component:EditAComponent},
-  { path: 'EditI', component:EditIComponent}
+  { path: 'EditI', component:EditIComponent},
+  { path: 'welcome', component:WelcomeComponent},
+  { path: 'thank', component:ThankComponent},
+  { path: 'donation', component:DonationComponent},
+  { path: 'acceptList', component:AcceptionListComponent},
+  { path: 'donateList', component:DonationListComponent}
 ];
 
 @NgModule({

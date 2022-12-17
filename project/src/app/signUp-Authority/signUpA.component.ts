@@ -24,14 +24,12 @@ export class signUpAComponent implements OnInit {
   Pass: any = ''
   Address: any = ''
   City: any = this.iCity
+  Region: any
+  Tax: any
   WFrom: any
   WTo: any
   DAFrom: any
   DATo: any
-
-  TBags: any
-  NBags: any
-  EBags: any
 
   ExistAplus: any
   NeededAplus: any
@@ -83,6 +81,18 @@ export class signUpAComponent implements OnInit {
     console.log(this.City)
   }
 
+  addRegion(){
+    const inputRegion = (<HTMLInputElement>document.getElementById('region'))
+    this.Region = inputRegion.value
+    console.log(this.Region)
+  }
+
+  addTax(){
+    const inputTax = (<HTMLInputElement>document.getElementById('tax'))
+    this.Tax = inputTax.value
+    console.log(this.Tax)
+  }
+  
   addWFrom(){
     const inputWFrom = (<HTMLInputElement>document.getElementById('wHourf'))
     this.WFrom = inputWFrom.value
@@ -105,24 +115,6 @@ export class signUpAComponent implements OnInit {
     const inputDATo = (<HTMLInputElement>document.getElementById('dTimeT'))
     this.DATo = inputDATo.value
     console.log(this.DATo)
-  }
-
-  addTBags(){
-    const inputTB = (<HTMLInputElement>document.getElementById('tBags'))
-    this.TBags = inputTB.value
-    console.log(this.TBags)
-  }
-
-  addNBags(){
-    const inputNB = (<HTMLInputElement>document.getElementById('nBags'))
-    this.NBags = inputNB.value
-    console.log(this.NBags)
-  }
-
-  addEBags(){
-    const inputEB = (<HTMLInputElement>document.getElementById('tBags'))
-    this.EBags = inputEB.value
-    console.log(this.EBags)
   }
 
   addExistBags1_1(){
@@ -206,7 +198,7 @@ export class signUpAComponent implements OnInit {
   }
 
   validation(){
-    if(this.Name==''||this.Address==''||this.City==''||this.Email==''||this.Pass==''){
+    if(this.Name==''||this.Address==''||this.City==''||this.Email==''||this.Pass==''||this.Region==''||this.Tax==''){
       alert('Incomplete information')
       return false
     }
@@ -222,11 +214,15 @@ export class signUpAComponent implements OnInit {
       alert('INVALID PASSWORD');
       return false
     }
+    else if(this.Tax.length!=9){
+      alert('INVALID TAX NUMBER');
+      return false
+    }
     return true
   }
 
 
-  SIGNUP(Email: string, Password: string, Name: string, Address: string, tBags: any, Needed: any, Available: any, Start: string, End: string, DAFrom: string, DATo: string){
+  SIGNUP(Email: string, Password: string, Name: string, Address: string, City: string, Region: string, Tax: string, Start: string, End: string, DAFrom: string, DATo: string){
     console.log("SIGNUP calling")
     this.http.get('http://localhost:6060/savior/signUpA',{ 
       responseType:'text',
@@ -235,9 +231,9 @@ export class signUpAComponent implements OnInit {
         pass: Password,
         name: Name,
         adrs: Address,
-        totalbags: tBags,
-        needed: Needed,
-        avilable: Available,
+        city: City,
+        region: Region,
+        tax: Tax,
         start: Start,
         end: End,
         donationF: DAFrom,
@@ -267,20 +263,18 @@ export class signUpAComponent implements OnInit {
     this.addPassword();
     this.addAddress();
     this.addCity()
+    this.addTax()
     this.addWFrom();
     this.addWTo();
     this.addDAFrom();
     this.addDATo();
-    this.addTBags();
-    this.addEBags();
-    this.addNBags();
   }
 
   NEXT(){
     this.INFO()
     if(this.validation()){
       console.log('valid');
-      this.SIGNUP(this.Email, this.Pass, this.Name, this.Address, this.TBags, this.NBags, this.EBags, this.WFrom, this.WTo, this.DAFrom, this.DATo)
+      this.SIGNUP(this.Email, this.Pass, this.Name, this.Address, this.City, this.Region, this.Tax, this.WFrom, this.WTo, this.DAFrom, this.DATo)
     }
     else{
       console.log("not valid")

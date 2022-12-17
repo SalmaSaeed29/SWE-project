@@ -17,6 +17,8 @@ export class profileAComponent implements OnInit {
   mail: any = this.getEmail()
   name: any = this.getName();
   address: any = this.getAddress()
+  city: any = this.getCity()
+  region: any = this.getRegion()
   workingFrom: any = this.getWorkingFrom()
   workingTo: any = this.getWorkingTo()
   donationFrom: any = this.getDonationF()
@@ -74,6 +76,60 @@ export class profileAComponent implements OnInit {
       }
       else{
         console.log("did not bring the address from back")
+      }
+    })
+  }
+
+  getCity(){
+    this.http.get('http://localhost:6060/savior/gAc',{
+      responseType:'text',
+      params:{
+      },
+      observe:'response'
+    }).subscribe(response=>{
+      this.city = response.body
+      console.log("city from back is: " + this.city)
+      if(this.city!=''){
+        console.log("city received")
+      }
+      else{
+        console.log("did not bring the city from back")
+      }
+    })
+  }
+
+  getRegion(){
+    this.http.get('http://localhost:6060/savior/gAr',{
+      responseType:'text',
+      params:{
+      },
+      observe:'response'
+    }).subscribe(response=>{
+      this.region = response.body
+      console.log("region from back is: " + this.region)
+      if(this.region!=''){
+        console.log("region received")
+      }
+      else{
+        console.log("did not bring the region from back")
+      }
+    })
+  }
+
+  getTax(){
+    this.http.get('http://localhost:6060/savior/gAt',{
+      responseType:'text',
+      params:{
+      },
+      observe:'response'
+    }).subscribe(response=>{
+      this.tax = response.body
+      console.log("tax from back is: " + this.tax)
+      if(this.tax!=''){
+        console.log("tax received")
+      }
+      else{
+        console.log("did not bring the tax from back")
       }
     })
   }

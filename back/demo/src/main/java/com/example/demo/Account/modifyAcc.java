@@ -12,11 +12,10 @@ public class modifyAcc {
         modification.editUserProfile(userAcc);
     }
 
-    public void editeProfile(String email,String pass, String name, String adrs, int totalbags,int needed,int avilable,String start, String end,String donation){
+    public void editeProfile(String email,String pass, String name, String adrs, String start, String end,String donation){
         authority authAcc = new authority();
         authAcc.setEmail(email);authAcc.setPassword(pass);authAcc.setName(name);
-        authAcc.setAddress(adrs);authAcc.setTotalbags(totalbags);authAcc.setNeededbags(needed);
-        authAcc.setAvailablebags(avilable);authAcc.setStartWork(start);
+        authAcc.setStartWork(start);
         authAcc.setEndWork(end);authAcc.setDonationtimeFrom(donation);
         authAcc.setDonationtimeTo(donation);
 

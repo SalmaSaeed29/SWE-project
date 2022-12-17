@@ -5,9 +5,9 @@ public class authority {
     String password;
     String name;
     String address;
-    int totalbags;
-    int neededbags;
-    int availablebags;
+    String city;
+    String region;
+    String tax;
     String startWork;
     String endWork;
     String donationtimeFrom;
@@ -62,39 +62,40 @@ public class authority {
         this.address = address;
     }
 
-    public int getTotalbags() {
-        return totalbags;
+    public String getCity() {
+        return city;
     }
 
-    public void setTotalbags(int totalbags) {
-        this.totalbags = totalbags;
+    public void setCity(String city) {
+        this.city = city;
     }
 
-    public int getNeededbags() {
-        return neededbags;
+    public String getRegion() {
+        return region;
     }
 
-    public void setNeededbags(int neededbags) {
-        this.neededbags = neededbags;
+    public void setRegion(String region) {
+        this.region = region;
     }
 
-    public int getAvailablebags() {
-        return availablebags;
+    public String getTax() {
+        return tax;
     }
 
-    public void setAvailablebags(int availablebags) {
-        this.availablebags = availablebags;
+    public void setTax(String tax) {
+        this.tax = tax;
     }
 
     public String getDonationtimeFrom() {
         return donationtimeFrom;
     }
-    public String getDonationtimeTo() {
-        return donationtimeTo;
-    }
 
     public void setDonationtimeFrom(String donationtimeFrom) {
         this.donationtimeFrom = donationtimeFrom;
+    }
+
+    public String getDonationtimeTo() {
+        return donationtimeTo;
     }
 
     public void setDonationtimeTo(String donationtimeTo) {

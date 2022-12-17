@@ -68,8 +68,8 @@ public class DB{
             final String QUERY = "insert into authority values(\""+newAuth.getEmail()
                     +"\",\""+newAuth.getPassword()
                     +"\",\""+newAuth.getName()+"\",\""+newAuth.getAddress()
-                    +"\","+newAuth.getTotalbags()+","+newAuth.getNeededbags()
-                    +","+newAuth.getAvailablebags()+",\""+newAuth.getStartWork()
+                    +"\","+newAuth.getCity()+","+newAuth.getRegion()
+                    +",\""+newAuth.getStartWork()
                     +"\",\""+newAuth.getEndWork()+"\",\""+newAuth.getDonationtimeFrom()
                     +"\",\""+newAuth.getDonationtimeTo()+"\");\n";
 //            System.out.println(QUERY);
@@ -133,7 +133,7 @@ public class DB{
 
     }
 
-    public user getmMyData(long id, String pass){
+    public user getUserData(long id, String pass){
         user urData = new user();
         boolean ok = validateUser(id,pass);
         String QUERY = "SELECT * FROM systemdb.userprofile where id = "+id+";";
@@ -236,18 +236,21 @@ public class DB{
                 while(rs.next()){
                     //Display values
 
-                    urData.setEmail(rs.getString("email"));urData.setName(rs.getString("authName"));
-                    urData.setAddress(rs.getString("address"));urData.setTotalbags(rs.getInt("totalbags"));
-                    urData.setNeededbags(rs.getInt("neededbags"));urData.setAvailablebags(rs.getInt("availablebags"));
-                    urData.setStartWork(rs.getString("workinghours_start"));urData.setEndWork(rs.getString("workinghours_close"));
+                    urData.setEmail(rs.getString("email"));
+                    urData.setName(rs.getString("authName"));
+                    urData.setAddress(rs.getString("address"));
+                    urData.setCity(rs.getString("city"));
+                    urData.setRegion(rs.getString("region"));
+                    urData.setTax(rs.getString("tax"));
+                    urData.setStartWork(rs.getString("workinghours_start"));
+                    urData.setEndWork(rs.getString("workinghours_close"));
                     urData.setDonationtimeFrom(rs.getString("donationtimeFrom"));
                     urData.setDonationtimeTo(rs.getString("donationtimeTo"));
                     System.out.print("email: " + rs.getString("email"));
                     System.out.print(", name: " + rs.getString("authName"));
                     System.out.print(", address: " + rs.getString("address"));
-                    System.out.println(", total bags: " + rs.getInt("totalbags"));
-                    System.out.println(", neede bags: " + rs.getInt("neededbags"));
-                    System.out.println(", available bags: " + rs.getInt("availablebags"));
+                    System.out.print(", city: " + rs.getString("city"));
+                    System.out.print(", region: " + rs.getString("region"));
                     System.out.println(", start working at: " + rs.getString("workinghours_start"));
                     System.out.println(", close at: " + rs.getString("workinghours_close"));
                     System.out.println(", donation time from: " + rs.getString("donationtimeFrom"));

@@ -22,13 +22,13 @@
                                     <a class="nav-link " href="#">Home</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link active" aria-current="page" href="#">Profile</a>
+                                    <a class="nav-link active" routerLink="/profileI" routerLinkActive="active" aria-current="page" href="#">Profile</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="#">Donate</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">Accepte</a>
+                                    <a class="nav-link" href="#">Accept</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="#">About Us</a>
@@ -51,7 +51,7 @@
                                 </div>
                                 <div class="col-8">
                                     <label for="address" class="form-label">Address</label>
-                                    <p>1234 Main St</p>
+                                    <p>{{address}}</p>
                                 </div>
                                 <div class="col-4">
                                     <label for="city" class="form-label">City</label>
@@ -59,18 +59,18 @@
                                 </div>
                                 <div class="col-md-4">
                                     <label for="weight" class="form-label">Weight</label>
-                                    <p>80 kg</p>
+                                    <p>{{weight}}</p>
                                 </div>
                                 <div class="col-md-4">
                                     <label for="age" class="form-label">Age</label>
-                                    <P>30 years</P>
+                                    <P>{{age}}</P>
                                 </div>
                                 <div class="col-md-4">
                                     <label for="bType" class="form-label">Blood type</label>
-                                    <p>A+</p>
+                                    <p>{{bloodType}}</p>
                                 </div>
                                 <div class="col-md-4">
-                                    <button class="btn btn-danger">Edite</button>
+                                    <button class="btn btn-danger">Edit</button>
                                 </div>
                             </div>
                         </div>

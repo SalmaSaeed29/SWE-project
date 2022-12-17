@@ -13,7 +13,7 @@ import { profileAComponent } from './profile-Authority/profileA.component'
 import { profileIComponent } from './profile-Individual/profileI.component'
 import { EditAComponent } from './Edit-profile-Authority/EditA.component'
 import { EditIComponent } from './Edit-Profile-Individual/EditI.component'
-import { WelcomeComponent } from './welcome/welcome.component'
+import { WelcomeAComponent } from './welcomeA/welcomeA.component'
 import { ThankComponent } from './thankDonation/thank.component'
 import { DonationComponent } from './donation/donation.component'
 import { AcceptionListComponent } from './acception-list/aList.component'
@@ -32,7 +32,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
     profileIComponent,
     EditAComponent,
     EditIComponent,
-    WelcomeComponent,
+    WelcomeAComponent,
     ThankComponent,
     DonationComponent,
     AcceptionListComponent,

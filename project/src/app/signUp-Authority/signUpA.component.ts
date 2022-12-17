@@ -15,11 +15,15 @@ export class signUpAComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  iCity = (<HTMLInputElement>document.getElementById('city'))
+    // this.City = inputCity.value
+    // console.log(this.City)
+
   Name: any = ''
   Email: any = ''
   Pass: any = ''
   Address: any = ''
-  City: any = ''
+  City: any = this.iCity
   WFrom: any
   WTo: any
   DAFrom: any

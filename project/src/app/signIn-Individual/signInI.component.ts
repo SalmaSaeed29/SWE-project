@@ -49,7 +49,7 @@ export class signInIComponent implements OnInit {
   }
 
   SIGNIN_I(ID:string, Password:string){
-    this.http.get('http://localhost:6060/Savior/signInI',{
+    this.http.get('http://localhost:6060/savior/signInI',{
       responseType:'text',
       params:{
         id: ID,
@@ -63,7 +63,7 @@ export class signInIComponent implements OnInit {
         alert("WRONG id or password!")
       }
       else{
-        this.router.navigateByUrl("/welcome")
+        this.router.navigateByUrl("/profileI")
       }
     })
   }

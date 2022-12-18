@@ -7,7 +7,7 @@ public class DB{
     static final String USER = "root";
     static final String PASS = "2972001333";
 
-    public void addUser(user newuser){
+    public String addUser(user newuser){
         boolean valid = validateID(newuser.getId());
         if (valid) {
             final String QUERY = "insert into userprofile values(" + newuser.getId() + ",\"" +
@@ -26,9 +26,11 @@ public class DB{
                 e.printStackTrace();
             }
 
+            return "valid";
         }
         else {
             System.out.println("please enter correct info");
+            return "invalid";
         }
     }
 

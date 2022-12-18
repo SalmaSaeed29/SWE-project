@@ -90,7 +90,7 @@ export class signUpIComponent implements OnInit {
       alert('Incomplete information')
       return false
     }
-    else if(this.ID.length!=6 && this.Pass.length<1){
+    else if(this.ID.length!=6 && this.Pass.length<8){
       alert('INVALID ID and PASSWORD');
       return false
     }
@@ -98,7 +98,7 @@ export class signUpIComponent implements OnInit {
       alert('INVALID ID');
       return false
     }
-    else if(this.Pass.length<1){
+    else if(this.Pass.length<8){
       alert('INVALID PASSWORD');
       return false
     }
@@ -134,10 +134,11 @@ export class signUpIComponent implements OnInit {
       this.response = response.body
       console.log(this.response)
 
-      if(this.response=="Done"){
+      if(this.response=="valid"){
         this.router.navigateByUrl('/welcomeI')
       }
-      else if(this.response==""){
+      else if(this.response=="invalid"){
+        alert("invalid ID")
         console.log("has not received Done from back")
       }
       else{

@@ -63,8 +63,42 @@ public class DB{
     return false;
     }
 
+
+    public boolean validateTAX(String tax) {
+
+        final String QUERY = "SELECT EXISTS(SELECT * from authoritytax WHERE tax=" + tax + ");";
+        // Open a connection
+        try (Connection conn = DriverManager.getConnection(DB_URL, USER, PASS);
+             Statement stmt = conn.createStatement();
+
+        ) {
+            String sql = "USE systemdb";
+            stmt.executeUpdate(sql);
+            ResultSet rs = stmt.executeQuery(QUERY);
+
+            int valid = -1;
+            while (rs.next()) {
+                //Display values
+                valid = rs.getInt("EXISTS(SELECT * from civilregistry WHERE tax=" + tax + ")");
+            }
+            if (valid == 1) {
+                System.out.println("valid id");
+                return true;
+            } else if (valid == 0) {
+                System.out.println("invalid id");
+                return false;
+            }
+        } catch (SQLException e) {
+
+            e.printStackTrace();
+        }
+        return false;
+    }
+
     public void addAuthority(authority newAuth){
 
+        boolean valid = validateTAX(newAuth.getTax());
+        if (valid){
             final String QUERY = "insert into authority values(\""+newAuth.getEmail()
                     +"\",\""+newAuth.getPassword()
                     +"\",\""+newAuth.getName()+"\",\""+newAuth.getAddress()
@@ -73,16 +107,30 @@ public class DB{
                     +"\",\""+newAuth.getEndWork()+"\",\""+newAuth.getDonationtimeFrom()
                     +"\",\""+newAuth.getDonationtimeTo()+"\",\""+newAuth.getTax()+"\");\n";
             System.out.println(QUERY);
+        final String QUERY2 = "insert into bagsNumber values(\""+newAuth.getTax()
+                +"\",\""+newAuth.getN_Aplus()
+                +"\",\""+newAuth.getE_Aplus()+"\",\""+newAuth.getN_Aminus()
+                +"\",\""+newAuth.getE_Aminus()+"\",\""+newAuth.getN_Bplus()
+                +"\",\""+newAuth.getE_Bplus()+"\",\""+newAuth.getN_Bminus()
+                +"\",\""+newAuth.getE_Bminus()+"\",\""+newAuth.getN_ABplus()
+                +"\",\""+newAuth.getE_ABplus()+"\",\""+newAuth.getN_ABminus()
+                +"\",\""+newAuth.getE_ABminus()+"\",\""+newAuth.getN_Oplus()
+                +"\",\""+newAuth.getE_Oplus()+"\",\""+newAuth.getN_Ominus()
+                +"\",\""+newAuth.getE_Ominus()+"\");\n";
             try(Connection conn = DriverManager.getConnection(DB_URL, USER, PASS);
                 Statement stmt = conn.createStatement();
             ) {
                 String sql = "USE systemdb";
                 stmt.executeUpdate(sql);
                 stmt.executeUpdate(QUERY);
+                stmt.executeUpdate(QUERY2);
                 System.out.println("authority profile created successfully...");
             } catch (SQLException e) {
                 e.printStackTrace();
-            }
+            }}
+        else {
+            System.out.println("please enter correct info");
+        }
 
     }
 

@@ -113,6 +113,11 @@ public class registration {
         authData.setEndWork(end);
         authData.setDonationtimeFrom(donationF);
         authData.setDonationtimeTo(donationT);
+//        authData.setN_Aplus();authData.setE_Aplus();authData.setN_Aminus();authData.setE_Aminus();
+//        authData.setN_Bplus();authData.setE_Bplus();authData.setN_Bminus();authData.setE_Bminus();
+//        authData.setN_ABplus();authData.setE_ABplus();authData.setN_ABminus();s();authData.setE_ABminus();
+//        authData.setN_Oplus();authData.setE_Oplus();authData.setN_Ominus();authData.setE_Ominus();
+
         adding.addAuthority(authData);
         return "Done";
     }

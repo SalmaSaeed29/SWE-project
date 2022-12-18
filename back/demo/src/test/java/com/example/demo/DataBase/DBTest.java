@@ -44,26 +44,26 @@ class DBTest {
 
     //get my data
 
-    @Test
-    void givenRightidandRightpasswordThenNotNull() {
-        DB test = new DB();
-        assertNotNull(test.getmMyData(110756,"shoee45"));
-    }
-    @Test
-    void givenRightidandWrongpasswordThenNull() {
-        DB test = new DB();
-        assertNull(test.getmMyData(110756,"she45"));
-    }
-    @Test
-    void givenWrongidandRightpasswordThenNull() {
-        DB test = new DB();
-        assertNull(test.getmMyData(1101756,"shoee45"));
-    }
-    @Test
-    void givenWrongidandWrongpasswordThenNull() {
-        DB test = new DB();
-        assertNull(test.getmMyData(1107556,"ee45"));
-    }
+//    @Test
+//    void givenRightidandRightpasswordThenNotNull() {
+//        DB test = new DB();
+//        assertNotNull(test.getmMyData(110756,"shoee45"));
+//    }
+//    @Test
+//    void givenRightidandWrongpasswordThenNull() {
+//        DB test = new DB();
+//        assertNull(test.getmMyData(110756,"she45"));
+//    }
+//    @Test
+//    void givenWrongidandRightpasswordThenNull() {
+//        DB test = new DB();
+//        assertNull(test.getmMyData(1101756,"shoee45"));
+//    }
+//    @Test
+//    void givenWrongidandWrongpasswordThenNull() {
+//        DB test = new DB();
+//        assertNull(test.getmMyData(1107556,"ee45"));
+//    }
 
 
     //validate auth

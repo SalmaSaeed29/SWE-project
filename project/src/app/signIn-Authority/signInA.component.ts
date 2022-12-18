@@ -86,7 +86,7 @@ export class signInAComponent implements OnInit {
     if(this.validation()){
       console.log("valid sign in")
       this.Password = this.hashPassword(this.Password)
-      console.log("password after hashing" + this.Password)
+      console.log("password after hashing: " + this.Password)
       this.SIGNIN_A(this.Email, this.Password);
     }
     else{

@@ -73,11 +73,12 @@ export class signUpIComponent implements OnInit {
     console.log(this.Address)
   }
 
-  addCity(){
-    const inputCity = (<HTMLInputElement>document.getElementById('city'))
-    this.City = inputCity.value
-    console.log(this.City)
-  }
+  // will be taken from back
+  // addCity(){
+  //   const inputCity = (<HTMLInputElement>document.getElementById('city'))
+  //   this.City = inputCity.value
+  //   console.log(this.City)
+  // }
 
   addRegion(){
     const inputRegion = (<HTMLInputElement>document.getElementById('region'))
@@ -156,7 +157,7 @@ export class signUpIComponent implements OnInit {
     this.addAge();
     this.addWeight();
     this.addAddress();
-    this.addCity();
+    // this.addCity();
   }
 
   NEXT(){

@@ -18,6 +18,9 @@ export class signInAComponent implements OnInit {
   Password: any = ''
   returnedValue: any
 
+  n :any
+  asci: any = ''
+  hashedPass: any
   response: any = ''
 
   addEmail(){
@@ -48,6 +51,15 @@ export class signInAComponent implements OnInit {
     return true
   }
 
+  hashPassword(pass: string){
+    this.n = pass.length
+    for(let i = 0; i < this.n; i++){
+        this.asci += pass.charCodeAt(i)
+    }
+    this.hashedPass = this.asci
+    return this.hashedPass;
+   }
+
   SIGNIN_A(Email:string, Password:string){
     this.http.get('http://localhost:6060/savior/signInA',{
       responseType:'text',
@@ -73,6 +85,8 @@ export class signInAComponent implements OnInit {
     this.addPassword()
     if(this.validation()){
       console.log("valid sign in")
+      this.Password = this.hashPassword(this.Password)
+      console.log("password after hashing" + this.Password)
       this.SIGNIN_A(this.Email, this.Password);
     }
     else{

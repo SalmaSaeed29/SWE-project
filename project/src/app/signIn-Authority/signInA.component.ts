@@ -63,7 +63,7 @@ export class signInAComponent implements OnInit {
         alert("WRONG email or password!")
       }
       else if(this.response == "True"){
-        this.router.navigateByUrl("/profileA")
+        this.router.navigateByUrl("/welcomeA")
       }
     })
   }

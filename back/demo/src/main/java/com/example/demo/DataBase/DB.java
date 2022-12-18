@@ -3,7 +3,7 @@ import com.example.demo.Registration.*;
 import java.sql.*;
 
 public class DB{
-    static final String DB_URL = "jdbc:mysql://@localhost:3306";
+    static final String DB_URL = "jdbc:mysql://localhost:3306";
     static final String USER = "root";
     static final String PASS = "2972001333";
 
@@ -13,8 +13,8 @@ public class DB{
             final String QUERY = "insert into userprofile values(" + newuser.getId() + ",\"" +
                     newuser.getPassword() + "\",\"" + newuser.getName() + "\"," + newuser.getAge()
                     + "," + newuser.getWeight() + ",\"" + newuser.getBloodtype() + "\",\"" +
-                    newuser.getAddress() + "\");";
-//            System.out.println(QUERY);
+                    newuser.getAddress() + "\",\"" + newuser.getCity() + "\",\"" + newuser.getRegion() + "\");";
+            System.out.println(QUERY);
             try(Connection conn = DriverManager.getConnection(DB_URL, USER, PASS);
                 Statement stmt = conn.createStatement();
             ) {
@@ -68,11 +68,11 @@ public class DB{
             final String QUERY = "insert into authority values(\""+newAuth.getEmail()
                     +"\",\""+newAuth.getPassword()
                     +"\",\""+newAuth.getName()+"\",\""+newAuth.getAddress()
-                    +"\","+newAuth.getCity()+","+newAuth.getRegion()
-                    +",\""+newAuth.getStartWork()
+                    +"\",\""+newAuth.getCity()+"\",\""+newAuth.getRegion()
+                    +"\",\""+newAuth.getStartWork()
                     +"\",\""+newAuth.getEndWork()+"\",\""+newAuth.getDonationtimeFrom()
-                    +"\",\""+newAuth.getDonationtimeTo()+"\");\n";
-//            System.out.println(QUERY);
+                    +"\",\""+newAuth.getDonationtimeTo()+"\",\""+newAuth.getTax()+"\");\n";
+            System.out.println(QUERY);
             try(Connection conn = DriverManager.getConnection(DB_URL, USER, PASS);
                 Statement stmt = conn.createStatement();
             ) {

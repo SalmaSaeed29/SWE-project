@@ -8,6 +8,8 @@ public class user {
     float weight;
     String bloodtype;
     String address;
+    String city;
+    String region;
 
     public long getId() {
         return id;
@@ -63,6 +65,22 @@ public class user {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getRegion() {
+        return region;
+    }
+
+    public void setRegion(String region) {
+        this.region = region;
     }
     public boolean canDonate(String BT){
         //compare betn BT and user bloodtype

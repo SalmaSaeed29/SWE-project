@@ -28,7 +28,7 @@ public class registrationController {
 
     public boolean validateAuthorityInfo( String email,  String password){
         DB start = new DB();
-        Boolean V = start.validateAuthority(email,password);
+        Boolean V = start.validateAuthority(email, password);
         if(V) {
             return true;
         }

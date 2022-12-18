@@ -63,7 +63,7 @@ export class signInIComponent implements OnInit {
         alert("WRONG id or password!")
       }
       else{
-        this.router.navigateByUrl("/profileI")
+        this.router.navigateByUrl("/welcomeI")
       }
     })
   }

@@ -24,7 +24,7 @@ export class signUpAComponent implements OnInit {
   Pass: any = ''
   Address: any = ''
   City: any = this.iCity
-  Region: any
+  Region: any = "victoria"
   Tax: any
   WFrom: any
   WTo: any
@@ -245,7 +245,7 @@ export class signUpAComponent implements OnInit {
       console.log(this.response)
 
       if(this.response=="Done"){
-        this.router.navigateByUrl('/profileA')
+        this.router.navigateByUrl('/welcomeA')
       }
       else if(this.response==""){
         console.log("has not received Done from back")
@@ -263,6 +263,7 @@ export class signUpAComponent implements OnInit {
     this.addPassword();
     this.addAddress();
     this.addCity()
+    // this.addRegion()
     this.addTax()
     this.addWFrom();
     this.addWTo();

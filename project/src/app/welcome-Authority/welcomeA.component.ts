@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-welcomeA',
+  selector: 'app-welcome-Authority',
   templateUrl: './welcomeA.component.html',
   styleUrls: ['./welcomeA.component.css']
 })

@@ -22,7 +22,7 @@
                                     <a class="nav-link " href="#">Home</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link active" routerLink="/profileI" routerLinkActive="active" aria-current="page" href="#">Profile</a>
+                                    <a class="nav-link active" aria-current="page" href="/profileI">Profile</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="#">Donate</a>
@@ -41,6 +41,10 @@
                     <div class="proContent" style="max-width: 800px;">
                         <div class="card p-5 border border-danger">
                             <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label for="name" class="form-label">Hello</label>
+                                    <p>{{name}}</p>
+                                </div>
                                 <div class="col-md-6">
                                     <label for="id" class="form-label">ID</label>
                                     <p>{{id}}</p>

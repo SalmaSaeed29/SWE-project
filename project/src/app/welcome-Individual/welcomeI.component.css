@@ -1,0 +1,81 @@
+nav{
+    font-size: larger;
+    position: relative;
+    z-index: 9999999999;
+}
+.savi{
+    font-size: xx-large;
+    font-weight: 600;
+}
+
+.home
+{
+    height: 89.5vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-image: url(../imgs/2712145.jpg);
+    background-position: center center;
+    background-size: cover;
+    color: #fff;
+}
+.home-content
+{
+    position: relative;
+    z-index: 4;
+}
+.home h1
+{
+    font-size: 4.5rem;
+    font-weight: 900;
+    color: #ff305b;
+}
+.home h3
+{
+    font-family: 'Georama', sans-serif;
+    font-size: 1.7rem;
+    font-weight: 800;
+}
+.home h4
+{
+    font-family: 'Georama', sans-serif;
+    font-size: 1.3rem;
+}
+.darkness
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 3;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.about img{
+    width: 100%;
+    margin: 20px;
+}
+.about{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* background: rgb(175, 26, 26); */
+}
+.content{
+    /* background-color: aqua; */
+    padding: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.about-speach{
+    padding: 50px;
+    /* background-color: blue; */
+    font-size: larger;
+}
+
+.info{
+    background-color: #FFC6B5;
+}

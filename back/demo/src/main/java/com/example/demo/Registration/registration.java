@@ -30,7 +30,8 @@ public class registration {
 
     @GetMapping("/signUpI")
     public String signUp(@RequestParam long id,@RequestParam String pass, @RequestParam String name,
-                         @RequestParam int age, @RequestParam int weight,@RequestParam String BT,@RequestParam String adrs){
+                         @RequestParam int age, @RequestParam int weight,@RequestParam String BT,
+                         @RequestParam String adrs, @RequestParam String city, @RequestParam String region){
         DB adding = new DB();
         userData.setId(id);
         userData.setPassword(pass);
@@ -39,6 +40,8 @@ public class registration {
         userData.setWeight(weight);
         userData.setBloodtype(BT);
         userData.setAddress(adrs);
+        userData.setCity(city);
+        userData.setRegion(region);
         adding.addUser(userData);
         return "Done";
     }

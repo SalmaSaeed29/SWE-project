@@ -5,7 +5,7 @@ import com.example.demo.Registration.*;
 import java.sql.*;
 
 public class modifyDB {
-    static final String DB_URL = "jdbc:mysql://@localhost:3306";
+    static final String DB_URL = "jdbc:mysql://localhost:3306";
     static final String USER = "root";
     static final String PASS = "2972001333";
 

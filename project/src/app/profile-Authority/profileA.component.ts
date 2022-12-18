@@ -23,8 +23,8 @@ export class profileAComponent implements OnInit {
   workingTo: any = this.getWorkingTo()
   donationFrom: any = this.getDonationF()
   donationTo: any = this.getDonationT()
-  pass: any
-  tax: any
+  pass: any 
+  tax: any = this.getTax()
 
   getName(){
     this.http.get('http://localhost:6060/savior/gAn',{

@@ -23,6 +23,7 @@ export class signUpIComponent implements OnInit {
   Weight: any = ''
   Address: any = ''
   City: any = ''
+  Region: any = ''
 
   response: any = ''
 
@@ -75,6 +76,12 @@ export class signUpIComponent implements OnInit {
     console.log(this.City)
   }
 
+  addRegion(){
+    const inputRegion = (<HTMLInputElement>document.getElementById('region'))
+    this.Region = inputRegion.value
+    console.log(this.Region)
+  }
+
   validation(){
     if(this.Name==''||this.Address==''||this.Age==''||this.BloodType==''||this.City==''||this.Weight==''){
       alert('Incomplete information')
@@ -95,7 +102,7 @@ export class signUpIComponent implements OnInit {
     return true
   }
 
-  SIGNUP_I(ID: any, Password: string, Name: any, Age: any, Weight: any, BloodType: string, Address: string){
+  SIGNUP_I(ID: any, Password: string, Name: any, Age: any, Weight: any, BloodType: string, Address: string, City: string, Region: string){
     console.log("SIGNUP calling")
     this.http.get('http://localhost:6060/savior/signUpI',{ 
       responseType:'text',
@@ -107,6 +114,8 @@ export class signUpIComponent implements OnInit {
         weight: Weight,
         BT: BloodType,
         adrs: Address,
+        city: City,
+        region: Region
       },
       observe:'response'
     }).subscribe(response=>{
@@ -114,7 +123,7 @@ export class signUpIComponent implements OnInit {
       console.log(this.response)
 
       if(this.response=="Done"){
-        this.router.navigateByUrl('/welcome')
+        this.router.navigateByUrl('/welcomeI')
       }
       else if(this.response==""){
         console.log("has not received Done from back")
@@ -141,11 +150,10 @@ export class signUpIComponent implements OnInit {
     this.INFO_I()
     if(this.validation()){
       console.log('valid');
-      this.SIGNUP_I(this.ID, this.Pass, this.Name, this.Age, this.Weight, this.BloodType, this.Address)
+      this.SIGNUP_I(this.ID, this.Pass, this.Name, this.Age, this.Weight, this.BloodType, this.Address, this.City, this.Region)
     }
     else{
       console.log("not valid")
-      //alert("INVALID!")
     }
   }
 

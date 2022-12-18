@@ -49,6 +49,10 @@ export class signUpAComponent implements OnInit {
   NeededOminus: any
 
   info: any
+
+  n :any
+  asci: any = ''
+  hashedPass: any
   response: any = ''
 
   addName(){
@@ -66,7 +70,7 @@ export class signUpAComponent implements OnInit {
   addPassword(){
     const inputPass = (<HTMLInputElement>document.getElementById('password'))
     this.Pass = inputPass.value
-    console.log(this.Pass)
+    console.log("password after hashing" + this.Pass)
   }
 
   addAddress(){
@@ -221,6 +225,15 @@ export class signUpAComponent implements OnInit {
     return true
   }
 
+  hashPassword(pass: string){
+    this.n = pass.length
+    for(let i = 0; i < this.n; i++){
+        this.asci += pass.charCodeAt(i)
+    }
+    this.hashedPass = this.asci
+    return this.hashedPass;
+   }
+  
 
   SIGNUP(Email: string, Password: string, Name: string, Address: string, City: string, Region: string, Tax: string, Start: string, End: string, DAFrom: string, DATo: string){
     console.log("SIGNUP calling")
@@ -275,6 +288,8 @@ export class signUpAComponent implements OnInit {
     this.INFO()
     if(this.validation()){
       console.log('valid');
+      this.Pass = this.hashPassword(this.Pass)
+      console.log("password after hashing: " + this.Pass)
       this.SIGNUP(this.Email, this.Pass, this.Name, this.Address, this.City, this.Region, this.Tax, this.WFrom, this.WTo, this.DAFrom, this.DATo)
     }
     else{

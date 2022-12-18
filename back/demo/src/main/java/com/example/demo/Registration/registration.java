@@ -42,8 +42,8 @@ public class registration {
         userData.setAddress(adrs);
         userData.setCity(city);
         userData.setRegion(region);
-        adding.addUser(userData);
-        return "Done";
+        String response = adding.addUser(userData);
+        return response;
     }
 
     @GetMapping("/gUn")

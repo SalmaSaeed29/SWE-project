@@ -25,6 +25,9 @@ export class signUpIComponent implements OnInit {
   City: any = ''
   Region: any = ''
 
+  n :any
+  asci: any = ''
+  hashedPass: any
   response: any = ''
 
   addName(){
@@ -43,7 +46,7 @@ export class signUpIComponent implements OnInit {
   addPassword(){
     const inputPass = (<HTMLInputElement>document.getElementById('password'))
     this.Pass = inputPass.value
-    console.log(this.Pass)
+    console.log("password before hashing: " + this.Pass)
   }
 
   addBloodType(){
@@ -102,6 +105,15 @@ export class signUpIComponent implements OnInit {
     return true
   }
 
+     hashPassword(pass: string){
+       this.n = pass.length
+       for(let i = 0; i < this.n; i++){
+           this.asci += pass.charCodeAt(i)
+       }
+       this.hashedPass = this.asci
+       return this.hashedPass;
+      }
+
   SIGNUP_I(ID: any, Password: string, Name: any, Age: any, Weight: any, BloodType: string, Address: string, City: string, Region: string){
     console.log("SIGNUP calling")
     this.http.get('http://localhost:6060/savior/signUpI',{ 
@@ -122,10 +134,11 @@ export class signUpIComponent implements OnInit {
       this.response = response.body
       console.log(this.response)
 
-      if(this.response=="Done"){
+      if(this.response=="valid"){
         this.router.navigateByUrl('/welcomeI')
       }
-      else if(this.response==""){
+      else if(this.response=="invalid"){
+        alert("invalid ID")
         console.log("has not received Done from back")
       }
       else{
@@ -150,6 +163,8 @@ export class signUpIComponent implements OnInit {
     this.INFO_I()
     if(this.validation()){
       console.log('valid');
+      this.Pass = this.hashPassword(this.Pass)
+      console.log("password after hashing: " + this.Pass)
       this.SIGNUP_I(this.ID, this.Pass, this.Name, this.Age, this.Weight, this.BloodType, this.Address, this.City, this.Region)
     }
     else{

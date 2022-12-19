@@ -14,7 +14,8 @@ export class signInAComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  Email: any = ''
+  // Email: any = ''
+  Tax: any = ''
   Password: any = ''
   returnedValue: any
 
@@ -23,10 +24,16 @@ export class signInAComponent implements OnInit {
   hashedPass: any
   response: any = ''
 
-  addEmail(){
-    const inputEmail = (<HTMLInputElement>document.getElementById('email'))
-    this.Email = inputEmail.value
-    console.log(this.Email)
+  // addEmail(){
+  //   const inputEmail = (<HTMLInputElement>document.getElementById('email'))
+  //   this.Email = inputEmail.value
+  //   console.log(this.Email)
+  // }
+
+  addTax(){
+    const inputTax = (<HTMLInputElement>document.getElementById('tax'))
+    this.Tax = inputTax.value
+    console.log(this.Tax)
   }
 
   addPassword(){
@@ -36,12 +43,12 @@ export class signInAComponent implements OnInit {
   }
 
   validation(){
-    if(this.Email.length<6 && this.Password.length<8){
-      alert('INVALID ID and PASSWORD');
+    if(this.Tax.length!=9 && this.Password.length<8){
+      alert('INVALID Tax number and PASSWORD');
       return false
     }
-    else if(this.Email.length<6){
-      alert('INVALID ID');
+    else if(this.Tax.length!=9){
+      alert('INVALID Tax number');
       return false
     }
     else if(this.Password.length<8){
@@ -60,11 +67,11 @@ export class signInAComponent implements OnInit {
     return this.hashedPass;
    }
 
-  SIGNIN_A(Email:string, Password:string){
+  SIGNIN_A(Tax:string, Password:string){
     this.http.get('http://localhost:6060/savior/signInA',{
       responseType:'text',
       params:{
-        email: Email,
+        tax: Tax,
         password: Password
       },
       observe:'response'
@@ -72,7 +79,7 @@ export class signInAComponent implements OnInit {
       this.response = response.body
       console.log("the response from sign in: " + this.response)
       if(this.response === "False"){
-        alert("WRONG email or password!")
+        alert("WRONG tax number or password!")
       }
       else if(this.response == "True"){
         this.router.navigateByUrl("/welcomeA")
@@ -81,13 +88,14 @@ export class signInAComponent implements OnInit {
   }
 
   signInA(){
-    this.addEmail()
+    this.addTax()
     this.addPassword()
     if(this.validation()){
       console.log("valid sign in")
       this.Password = this.hashPassword(this.Password)
       console.log("password after hashing: " + this.Password)
-      this.SIGNIN_A(this.Email, this.Password);
+      this.SIGNIN_A(this.Tax, this.Password);
+      this.hashedPass = ''
     }
     else{
       console.log("invalid sign in")

@@ -60,52 +60,52 @@ public class modifyDB {
             String sql = "USE systemdb";
             stmt.executeUpdate(sql);
             if (acc.getPassword() != null) {
-                String QUERY = "UPDATE authority SET authpassword = '" + acc.getPassword() + "' WHERE email = '" + acc.getEmail() + "';";
+                String QUERY = "UPDATE authority SET authpassword = '" + acc.getPassword() + "' WHERE tax = '" + acc.getTax() + "';";
                 stmt.executeUpdate(QUERY);
                 System.out.println("password updated successfully...");
             }
             if (acc.getName() != null) {
-                final String QUERY = "UPDATE authority SET authName = '" + acc.getName() + "' WHERE email = '" + acc.getEmail() + "';";
+                final String QUERY = "UPDATE authority SET authName = '" + acc.getName() + "' WHERE tax = '" + acc.getTax() + "';";
                 stmt.executeUpdate(QUERY);
                 System.out.println("name updated successfully...");
             }
             if (acc.getAddress() != null) {
-                String QUERY = "UPDATE authority SET address = '" + acc.getAddress() + "' WHERE email = '" + acc.getEmail() + "';";
+                String QUERY = "UPDATE authority SET address = '" + acc.getAddress() + "' WHERE tax = '" + acc.getTax() + "';";
                 stmt.executeUpdate(QUERY);
                 System.out.println("address updated successfully...");
             }
             if (acc.getCity() != null) {
-                String QUERY = "UPDATE authority SET city = '" + acc.getCity() + "' WHERE email = '" + acc.getEmail() + "';";
+                String QUERY = "UPDATE authority SET city = '" + acc.getCity() + "' WHERE tax = '" + acc.getTax() + "';";
                 stmt.executeUpdate(QUERY);
                 System.out.println("city updated successfully...");
             }
             if (acc.getRegion() != null) {
-                String QUERY = "UPDATE authority SET region = '" + acc.getRegion() + "' WHERE email = '" + acc.getEmail() + "';";
+                String QUERY = "UPDATE authority SET region = '" + acc.getRegion() + "' WHERE tax = '" + acc.getTax() + "';";
                 stmt.executeUpdate(QUERY);
                 System.out.println("region updated successfully...");
             }
             if (acc.getTax() != null) {
-                String QUERY = "UPDATE authority SET tax = '" + acc.getTax() + "' WHERE email = '" + acc.getEmail() + "';";
+                String QUERY = "UPDATE authority SET tax = '" + acc.getTax() + "' WHERE tax = '" + acc.getTax() + "';";
                 stmt.executeUpdate(QUERY);
                 System.out.println("tax updated successfully...");
             }
             if (acc.getStartWork() != null) {
-                String QUERY = "UPDATE authority SET workinghours_start = '" + acc.getStartWork() + "' WHERE email = '" + acc.getEmail() + "';";
+                String QUERY = "UPDATE authority SET workinghours_start = '" + acc.getStartWork() + "' WHERE tax = '" + acc.getTax() + "';";
                 stmt.executeUpdate(QUERY);
                 System.out.println("working hours updated successfully...");
             }
             if (acc.getEndWork() != null) {
-                String QUERY = "UPDATE authority SET workinghours_close = '" + acc.getEndWork() + "' WHERE email = '" + acc.getEmail() + "';";
+                String QUERY = "UPDATE authority SET workinghours_close = '" + acc.getEndWork() + "' WHERE tax = '" + acc.getTax() + "';";
                 stmt.executeUpdate(QUERY);
                 System.out.println("working hours updated successfully...");
             }
             if (acc.getDonationtimeFrom() != null) {
-                String QUERY = "UPDATE authority SET donationtime = '" + acc.getDonationtimeFrom() + "' WHERE email = '" + acc.getEmail() + "';";
+                String QUERY = "UPDATE authority SET donationtime = '" + acc.getDonationtimeFrom() + "' WHERE tax = '" + acc.getTax() + "';";
                 stmt.executeUpdate(QUERY);
                 System.out.println("donation time from updated successfully...");
             }
             if (acc.getDonationtimeTo() != null) {
-                String QUERY = "UPDATE authority SET donationtime = '" + acc.getDonationtimeTo() + "' WHERE email = '" + acc.getEmail() + "';";
+                String QUERY = "UPDATE authority SET donationtime = '" + acc.getDonationtimeTo() + "' WHERE tax = '" + acc.getTax() + "';";
                 stmt.executeUpdate(QUERY);
                 System.out.println("donation time to updated successfully...");
             }

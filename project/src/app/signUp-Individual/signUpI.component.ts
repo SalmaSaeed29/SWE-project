@@ -22,7 +22,6 @@ export class signUpIComponent implements OnInit {
   Age: any = ''
   Weight: any = ''
   Address: any = ''
-  City: any = ''
   Region: any = ''
 
   n :any
@@ -73,13 +72,6 @@ export class signUpIComponent implements OnInit {
     console.log(this.Address)
   }
 
-  // will be taken from back
-  // addCity(){
-  //   const inputCity = (<HTMLInputElement>document.getElementById('city'))
-  //   this.City = inputCity.value
-  //   console.log(this.City)
-  // }
-
   addRegion(){
     const inputRegion = (<HTMLInputElement>document.getElementById('region'))
     this.Region = inputRegion.value
@@ -87,7 +79,7 @@ export class signUpIComponent implements OnInit {
   }
 
   validation(){
-    if(this.Name==''||this.Address==''||this.Age==''||this.BloodType==''||this.City==''||this.Weight==''){
+    if(this.Name==''||this.Address==''||this.Age==''||this.BloodType==''||this.Region==''||this.Weight==''){
       alert('Incomplete information')
       return false
     }
@@ -115,7 +107,7 @@ export class signUpIComponent implements OnInit {
        return this.hashedPass;
       }
 
-  SIGNUP_I(ID: any, Password: string, Name: any, Age: any, Weight: any, BloodType: string, Address: string, City: string, Region: string){
+  SIGNUP_I(ID: any, Password: string, Name: any, Age: any, Weight: any, BloodType: string, Address: string, Region: string){
     console.log("SIGNUP calling")
     this.http.get('http://localhost:6060/savior/signUpI',{ 
       responseType:'text',
@@ -127,7 +119,6 @@ export class signUpIComponent implements OnInit {
         weight: Weight,
         BT: BloodType,
         adrs: Address,
-        city: City,
         region: Region
       },
       observe:'response'
@@ -157,6 +148,7 @@ export class signUpIComponent implements OnInit {
     this.addAge();
     this.addWeight();
     this.addAddress();
+    this.addRegion()
     // this.addCity();
   }
 
@@ -166,7 +158,7 @@ export class signUpIComponent implements OnInit {
       console.log('valid');
       this.Pass = this.hashPassword(this.Pass)
       console.log("password after hashing: " + this.Pass)
-      this.SIGNUP_I(this.ID, this.Pass, this.Name, this.Age, this.Weight, this.BloodType, this.Address, this.City, this.Region)
+      this.SIGNUP_I(this.ID, this.Pass, this.Name, this.Age, this.Weight, this.BloodType, this.Address, this.Region)
     }
     else{
       console.log("not valid")

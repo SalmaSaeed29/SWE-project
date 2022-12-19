@@ -5,6 +5,7 @@ public class authority {
     String password;
     String name;
     String address;
+    String phone;
     String city;
     String region;
     String tax;
@@ -192,6 +193,13 @@ public class authority {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
     public String getCity() {

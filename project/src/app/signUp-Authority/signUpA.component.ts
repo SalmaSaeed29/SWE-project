@@ -15,44 +15,41 @@ export class signUpAComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  iCity = (<HTMLInputElement>document.getElementById('city'))
-    // this.City = inputCity.value
-    // console.log(this.City)
-
   Name: any = ''
   Email: any = ''
+  Phone: any = ''
   Pass: any = ''
   Address: any = ''
-  City: any = this.iCity
-  Region: any = "victoria"
-  Tax: any
-  WFrom: any
-  WTo: any
-  DAFrom: any
-  DATo: any
+  City: any = ''
+  Region: any = ''
+  Tax: any = ''
+  WFrom: any = ''
+  WTo: any = ''
+  DAFrom: any = ''
+  DATo: any = ''
 
-  ExistAplus: any
-  NeededAplus: any
-  ExistAminus: any
-  NeededAminus: any
-  ExistBplus: any
-  NeededBplus: any
-  ExistBminus: any
-  NeededBminus: any
-  ExistABplus: any
-  NeededABplus: any
-  ExistABminus: any
-  NeededABminus: any
-  ExistOplus: any
-  NeededOplus: any
-  ExistOminus: any
-  NeededOminus: any
+  ExistAplus: any = ''
+  NeededAplus: any = ''
+  ExistAminus: any = ''
+  NeededAminus: any = ''
+  ExistBplus: any = ''
+  NeededBplus: any = ''
+  ExistBminus: any = ''
+  NeededBminus: any = ''
+  ExistABplus: any = ''
+  NeededABplus: any = ''
+  ExistABminus: any = ''
+  NeededABminus: any = ''
+  ExistOplus: any = ''
+  NeededOplus: any = ''
+  ExistOminus: any = ''
+  NeededOminus: any = ''
 
   info: any
 
   n :any
   asci: any = ''
-  hashedPass: any
+  hashedPass: any = ''
   response: any = ''
 
   addName(){
@@ -65,6 +62,12 @@ export class signUpAComponent implements OnInit {
     const inputEmail = (<HTMLInputElement>document.getElementById('email'))
     this.Email = inputEmail.value
     console.log(this.Email)
+  }
+
+  addPhone(){
+    const inputPhone = (<HTMLInputElement>document.getElementById('phone'))
+    this.Phone = inputPhone.value
+    console.log(this.Phone)
   }
 
   addPassword(){
@@ -203,24 +206,24 @@ export class signUpAComponent implements OnInit {
   }
 
   validation(){
-    if(this.Name==''||this.Address==''||this.City==''||this.Email==''||this.Pass==''||this.Region==''||this.Tax==''){
+    if(this.Name==''||this.Address==''||this.Region==''||this.Email==''||this.Pass==''||this.Tax==''
+    || this.WFrom=='' || this.WTo=='' || this.DAFrom=='' || this.DATo=='' || this.Phone==''
+    || this.ExistAplus=='' || this.NeededAplus=='' || this.ExistAminus=='' || this.NeededAminus==''
+    || this.ExistABplus=='' || this.NeededABplus=='' || this.ExistABminus=='' || this.NeededABminus==''
+    || this.ExistBplus=='' || this.NeededBplus=='' || this.ExistOplus=='' || this.NeededOplus==''){
       alert('Incomplete information')
       return false
     }
-    else if(this.Email.length<11 && this.Pass.length<8){
-      alert('INVALID EMAIL and PASSWORD');
+    else if(this.Tax.length!=9 && this.Pass.length<8){
+      alert('INVALID tax number and PASSWORD');
       return false
     }
-    else if(this.Email.length<11){
-      alert('INVALID Email');
+    else if(this.Tax.length!=9){
+      alert('INVALID tax number');
       return false
     }
     else if(this.Pass.length<8){
       alert('INVALID PASSWORD');
-      return false
-    }
-    else if(this.Tax.length!=9){
-      alert('INVALID TAX NUMBER');
       return false
     }
     return true
@@ -236,32 +239,53 @@ export class signUpAComponent implements OnInit {
    }
   
 
-  SIGNUP(Email: string, Password: string, Name: string, Address: string, City: string, Region: string, Tax: string, Start: string, End: string, DAFrom: string, DATo: string){
+  SIGNUP(Email: string, Phone: string, Password: string, Name: string, Address: string, Region: string, Tax: string, 
+    Start: string, End: string, DAFrom: string, DATo: string, 
+    EAp: any, NAp: any, EAm: any, NAm: any, 
+    EBp: any, NBp: any, EBm: any, NBm: any, 
+    EABp: any, NABp: any, EABm: any, NABm: any, 
+    EOp: any, NOp: any, EOm: any, NOm: any){
     console.log("SIGNUP calling")
     this.http.get('http://localhost:6060/savior/signUpA',{ 
       responseType:'text',
       params:{
         email: Email,
+        phone: Phone,
         pass: Password,
         name: Name,
         adrs: Address,
-        city: City,
         region: Region,
         tax: Tax,
         start: Start,
         end: End,
         donationF: DAFrom,
-        donationT: DATo
+        donationT: DATo,
+        EAplus: EAp,
+        NAplus: NAp,
+        EAminus: EAm,
+        NAminus: NAm,
+        EBplus: EBp,
+        NBplus: NBp,
+        EBminus: EBm,
+        NBminus: NBm,
+        EABplus: EABp,
+        NABplus: NABp,
+        EABminus: EABm,
+        NABminus: NABm,
+        EOplus: EOp,
+        NOplus: NOp,
+        EOminus: EOm,
+        NOminus: NOm
       },
       observe:'response'
     }).subscribe(response=>{
       this.response = response.body
       console.log(this.response)
 
-      if(this.response=="Done"){
+      if(this.response=="valid"){
         this.router.navigateByUrl('/welcomeA')
       }
-      else if(this.response==""){
+      else if(this.response=="invalid"){
         console.log("has not received Done from back")
       }
       else{
@@ -274,15 +298,17 @@ export class signUpAComponent implements OnInit {
   INFO(){
     this.addName();
     this.addEmail();
+    this.addPhone()
     this.addPassword();
     this.addAddress();
-    // this.addCity()
     this.addRegion()
     this.addTax()
     this.addWFrom();
     this.addWTo();
     this.addDAFrom();
     this.addDATo();
+    this.addNeededBags1_1()
+    this.addExistBags1_1()
   }
 
   NEXT(){
@@ -291,7 +317,12 @@ export class signUpAComponent implements OnInit {
       console.log('valid');
       this.Pass = this.hashPassword(this.Pass)
       console.log("password after hashing: " + this.Pass)
-      this.SIGNUP(this.Email, this.Pass, this.Name, this.Address, this.City, this.Region, this.Tax, this.WFrom, this.WTo, this.DAFrom, this.DATo)
+      this.SIGNUP(this.Email, this.Phone, this.Pass, this.Name, this.Address, this.Region, this.Tax, this.WFrom, this.WTo, this.DAFrom, this.DATo
+        ,this.ExistAplus, this.NeededAplus, this.ExistAminus, this.NeededAminus
+        ,this.ExistBplus, this.NeededBplus, this.ExistBminus, this.NeededBminus
+        ,this.ExistABplus, this.NeededABplus, this.ExistABminus, this.NeededABminus
+        ,this.ExistOplus, this.NeededOplus, this.ExistOminus, this.NeededOminus)
+        this.hashedPass = ''
     }
     else{
       console.log("not valid")

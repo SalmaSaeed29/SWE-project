@@ -18,8 +18,8 @@ export class profileIComponent implements OnInit {
   id: any = this.getID()
   password: any 
   address: any = this.getAddress()
-  city: any = this.getCity()
   region: any = this.getRegion()
+  city: any = this.getCity(this.region)
   weight: any = this.getWeight()
   age: any = this.getAge()
   bloodType: any = this.getType()
@@ -79,10 +79,12 @@ export class profileIComponent implements OnInit {
     })
   }
 
-  getCity(){
+  getCity(region: string){
+    console.log("we search city of region: " + region)
     this.http.get('http://localhost:6060/savior/gUc',{
       responseType:'text',
       params:{
+        region: region
       },
       observe:'response'
     }).subscribe(response=>{

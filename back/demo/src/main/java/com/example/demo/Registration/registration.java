@@ -58,9 +58,9 @@ public class registration {
     public String gUserRegion(){ return userData.getRegion(); }
 
     @GetMapping("/gUc")
-    public String gUserCity(@RequestParam String region){
+    public String gUserCity(){
         DB db = new DB();
-        return db.getUserCity(region); }
+        return db.getCity(userData.getRegion()); }
 
     @GetMapping("/gUw")
     public String gUserWeight(){ return String.valueOf(userData.getWeight()); }
@@ -126,8 +126,8 @@ public class registration {
     }
     @GetMapping("/gAc")
     public String gAuthCity(){
-        return authData.getCity();
-    }
+        DB db = new DB();
+        return db.getCity(authData.getRegion()); }
     @GetMapping("/gAr")
     public String gAuthRegion(){
         return authData.getRegion();

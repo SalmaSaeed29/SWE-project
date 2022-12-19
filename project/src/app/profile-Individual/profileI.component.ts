@@ -19,7 +19,7 @@ export class profileIComponent implements OnInit {
   password: any 
   address: any = this.getAddress()
   region: any = this.getRegion()
-  city: any = this.getCity(this.region)
+  city: any = this.getCity()
   weight: any = this.getWeight()
   age: any = this.getAge()
   bloodType: any = this.getType()
@@ -79,26 +79,6 @@ export class profileIComponent implements OnInit {
     })
   }
 
-  getCity(region: string){
-    console.log("we search city of region: " + region)
-    this.http.get('http://localhost:6060/savior/gUc',{
-      responseType:'text',
-      params:{
-        region: region
-      },
-      observe:'response'
-    }).subscribe(response=>{
-      this.city = response.body
-      console.log("city from back: " + this.city)
-      if(this.city != ''){
-        console.log("city received")
-      }
-      else{
-        console.log("did not bring the city from back")
-      }
-    })
-  }
-
   getRegion(){
     this.http.get('http://localhost:6060/savior/gUr',{
       responseType:'text',
@@ -113,6 +93,24 @@ export class profileIComponent implements OnInit {
       }
       else{
         console.log("did not bring the region from back")
+      }
+    })
+  }
+
+  getCity(){
+    this.http.get('http://localhost:6060/savior/gUc',{
+      responseType:'text',
+      params:{
+      },
+      observe:'response'
+    }).subscribe(response=>{
+      this.city = response.body
+      console.log("city from back: " + this.city)
+      if(this.city != ''){
+        console.log("city received")
+      }
+      else{
+        console.log("did not bring the city from back")
       }
     })
   }

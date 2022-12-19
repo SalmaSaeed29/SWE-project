@@ -195,13 +195,15 @@ public class DB{
                     //Display values
                     registration.userData.setId(rs.getLong("id"));registration.userData.setName(rs.getString("userName"));
                     registration.userData.setAge(rs.getInt("age"));registration.userData.setWeight(rs.getInt("weight"));
-                    registration.userData.setBloodtype(rs.getString("bloodtype"));registration.userData.setAddress(rs.getString("address"));
+                    registration.userData.setBloodtype(rs.getString("bloodtype"));
+                    registration.userData.setAddress(rs.getString("address")); registration.userData.setRegion(rs.getString("region"));
                     System.out.print("ID: " + rs.getLong("id"));
                     System.out.print(", Name: " + rs.getString("userName"));
                     System.out.print(", age: " + rs.getInt("age"));
                     System.out.println(", weight: " + rs.getInt("weight"));
                     System.out.println(", blood type: " + rs.getString("bloodtype"));
                     System.out.println(", address: " + rs.getString("address"));
+                    System.out.println(", region: " + rs.getString("region"));
                 }
                 return registration.userData;
             } catch (SQLException e) {
@@ -215,10 +217,10 @@ public class DB{
 
     }
 
-    public String getUserCity(String region){
+    public String getCity(String region){
         String city = "" ;
-        String QUERY = "SELECT city FROM systemdb.regions where region = "+region+";";
-        System.out.println(QUERY);
+        String QUERY = "SELECT city FROM systemdb.regions where region = " + "\"" + region + "\"" + ";";
+//        System.out.println(QUERY);
         try(Connection conn = DriverManager.getConnection(DB_URL, USER, PASS);
             Statement stmt = conn.createStatement();
 
@@ -342,7 +344,6 @@ public class DB{
             }
         }
         return null;
-
     }
 
 }

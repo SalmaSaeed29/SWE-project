@@ -40,7 +40,13 @@ public class registration {
         userData.setBloodtype(BT);
         userData.setAddress(adrs);
         userData.setRegion(region);
-        String response = adding.addUser(userData);
+
+        String response;
+        if(adding.checkForNoduplicateUsers(id)==false){
+            response = adding.addUser(userData);
+        }else{
+            response = "invalid";
+        }
         return response;
     }
 
@@ -100,7 +106,12 @@ public class registration {
         authData.setE_Bplus(EBplus); authData.setN_Bplus(NBplus); authData.setE_Bminus(EBminus); authData.setN_Bminus(NBminus);
         authData.setE_ABplus(EABplus); authData.setN_ABplus(NABplus); authData.setE_ABminus(EABminus); authData.setN_ABminus(NABminus);
         authData.setE_Oplus(EOplus); authData.setN_Oplus(NOplus); authData.setE_Ominus(EOminus); authData.setN_Ominus(NOminus);
-        String response = adding.addAuthority(authData);
+        String response;
+        if(adding.checkForNoduplicateAuthorities(tax)==false){
+            response = adding.addAuthority(authData);
+        }else{
+            response = "invalid";
+        }
         return response;
     }
 

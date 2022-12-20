@@ -23,6 +23,8 @@
           <div class="col-md-6">
             <label for="password" class="form-label">Password</label>
             <input type="password" class="form-control" id="password" placeholder="your password length must be at least 8">
+            <label class="sp">Show password</label>
+            <input type="checkbox" (click)="showPassword()"><br>
           </div>
           <div class="col-8">
             <label for="address" class="form-label">Address</label>
@@ -146,8 +148,8 @@
             <button type="submit" (click) = "NEXT()" class="btn btn-danger" style="max-width: 100px;" id="btnSubmit">Submit</button>
           </div>
           <button type="button" class="btn btn-link btn-go" routerLink="/signInI" routerLinkActive="active">You have an account already?</button>
-          <button type="button" class="btn btn-link btn-go" routerLink="/signUpA" routerLinkActive="active">Signup for authoritize</button>
-          <button type="button" class="btn btn-link btn-go" routerLink="/signInA" routerLinkActive="active">Signin for Authority</button>
+          <!-- <button type="button" class="btn btn-link btn-go" routerLink="/signUpA" routerLinkActive="active">Signup for authoritize</button>
+          <button type="button" class="btn btn-link btn-go" routerLink="/signInA" routerLinkActive="active">Signin for Authority</button> -->
         </div>
       </div>
     </div>

@@ -21,6 +21,8 @@
           <div class="col-md-4">
             <label for="password" class="form-label">Password</label>
             <input type="password" class="form-control" id="password">
+            <label class="sp">Show password</label>
+            <input type="checkbox" (click)="showPassword()"><br>
           </div>
           <div class="col-md-6">
             <label for="email" class="form-label">E-mail</label>
@@ -229,8 +231,8 @@
           <div class="col-12">
             <button type="submit" (click)="NEXT()" class="btn btn-danger" style="max-width: 100px;" id="btnSubmit">Submit</button>
           </div>
-          <button type="button" class="btn btn-link btn-go" routerLink="/signInI" routerLinkActive="active">sign in for individual</button>
-          <button type="button" class="btn btn-link btn-go" routerLink="/signUpI" routerLinkActive="active">sign up for individual</button>
+          <!-- <button type="button" class="btn btn-link btn-go" routerLink="/signInI" routerLinkActive="active">sign in for individual</button>
+          <button type="button" class="btn btn-link btn-go" routerLink="/signUpI" routerLinkActive="active">sign up for individual</button> -->
         </div>
       </div>
     </div>

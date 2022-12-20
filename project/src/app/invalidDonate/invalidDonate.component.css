@@ -10,18 +10,17 @@ nav{
     background-image: url(../imgs/world-blood-donor-day-creative-collage.jpg);
     background-position: center center;
     background-size: cover;
-    
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
-
-.notice{
-    font-size : 20px
-}
-
-.proContent{
-    padding: 50px;
-}
-.scroll-container{
-  height: 73vh;
-  overflow-y: scroll;
-  scroll-behavior: smooth;
+.proContent
+{
+    /* position: relative;
+    z-index: 4;
+    top: 280px; */
+    text-align: center;
+    color: #dc3545;
+    font-size: 30px;
+    font-weight: 500;   
 }

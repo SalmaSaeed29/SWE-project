@@ -229,7 +229,18 @@ export class signUpAComponent implements OnInit {
     return true
   }
 
+  showPassword(){
+    var x = (<HTMLInputElement>document.getElementById('password'))
+    if (x.type === 'password'){
+      x.type = "text";
+    }else{
+      x.type = "password";
+    }
+  }
+
   hashPassword(pass: string){
+    this.hashedPass = ''
+    this.asci = ''
     this.n = pass.length
     for(let i = 0; i < this.n; i++){
         this.asci += pass.charCodeAt(i)
@@ -322,7 +333,6 @@ export class signUpAComponent implements OnInit {
         ,this.ExistBplus, this.NeededBplus, this.ExistBminus, this.NeededBminus
         ,this.ExistABplus, this.NeededABplus, this.ExistABminus, this.NeededABminus
         ,this.ExistOplus, this.NeededOplus, this.ExistOminus, this.NeededOminus)
-        this.hashedPass = ''
     }
     else{
       console.log("not valid")

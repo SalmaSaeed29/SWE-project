@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { signInIComponent } from './signInI.component';
 
-describe('SignInAComponent', () => {
+describe('SignInIComponent', () => {
   let component: signInIComponent;
   let fixture: ComponentFixture<signInIComponent>;
 

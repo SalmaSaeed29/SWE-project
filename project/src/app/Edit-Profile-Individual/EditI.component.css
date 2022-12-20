@@ -1,0 +1,19 @@
+.contentprofile{
+    height: 90vh;
+    background-image: url(../imgs/profile.jpg);
+    background-position: center center;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+}
+nav{
+    font-size: larger;
+}
+.savi{
+    font-size: xx-large;
+    font-weight: 600;
+}
+.proContent{
+    padding: 50px;
+
+}

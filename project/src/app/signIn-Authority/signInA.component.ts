@@ -58,7 +58,18 @@ export class signInAComponent implements OnInit {
     return true
   }
 
+  showPassword(){
+    var x = (<HTMLInputElement>document.getElementById('password'))
+    if (x.type === 'password'){
+      x.type = "text";
+    }else{
+      x.type = "password";
+    }
+  }
+
   hashPassword(pass: string){
+    this.hashedPass = ''
+    this.asci = ''
     this.n = pass.length
     for(let i = 0; i < this.n; i++){
         this.asci += pass.charCodeAt(i)
@@ -95,7 +106,6 @@ export class signInAComponent implements OnInit {
       this.Password = this.hashPassword(this.Password)
       console.log("password after hashing: " + this.Password)
       this.SIGNIN_A(this.Tax, this.Password);
-      this.hashedPass = ''
     }
     else{
       console.log("invalid sign in")

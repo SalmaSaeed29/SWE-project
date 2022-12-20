@@ -178,6 +178,30 @@ public class DB{
 
     }
 
+    public boolean checkForNoduplicateUsers(long id){
+        int num=0;
+        DB start = new DB();
+        final String QUERY = "select count(*) from userprofile where id="+id+";";
+        System.out.println(QUERY);
+        try(Connection conn = DriverManager.getConnection(DB_URL, USER, PASS);
+            Statement stmt = conn.createStatement();
+        ) {
+            String sql = "USE systemdb";
+            stmt.executeUpdate(sql);
+            ResultSet rs = stmt.executeQuery(QUERY);
+            while (rs.next()) {
+                num = rs.getInt("count(*)");
+                System.out.println("rs=="+num);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        if(num!=0){
+            return true;
+        }
+        return false;
+    }
+
     public user getUserData(long id, String pass){
 //        user urData = new user();
         boolean ok = validateUser(id,pass);
@@ -285,6 +309,30 @@ public class DB{
         }
         return false;
 
+    }
+
+    public boolean checkForNoduplicateAuthorities(String tax){
+        int num=0;
+        DB start = new DB();
+        final String QUERY = "select count(*) from authority where tax=" + "\"" + tax+ "\"" +";";
+        System.out.println(QUERY);
+        try(Connection conn = DriverManager.getConnection(DB_URL, USER, PASS);
+            Statement stmt = conn.createStatement();
+        ) {
+            String sql = "USE systemdb";
+            stmt.executeUpdate(sql);
+            ResultSet rs = stmt.executeQuery(QUERY);
+            while (rs.next()) {
+                num = rs.getInt("count(*)");
+                System.out.println("rs=="+num);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        if(num!=0){
+            return true;
+        }
+        return false;
     }
 
     public authority getAuthData(String tax, String pass){

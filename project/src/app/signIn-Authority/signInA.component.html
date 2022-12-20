@@ -21,13 +21,16 @@
           </div>
           <div class="mb-3">
             <label for="password" class="form-label">Password</label>
-            <input type="password" class="form-control" id="password" placeholder="*************">
+            <input type="password" class="form-control" id="password" placeholder="your password length should be 8 or more">
+            <label class="sp">Show password</label>
+            <input type="checkbox" (click)="showPassword()"><br>
           </div>
           <button type="submit" (click)="signInA()" class="btn btn-danger" style="max-width: 100px;" id="btnSubmit">Submit</button>
+          <a href="" class="btn btn-link btn-go" routerLink="/forgotA" routerLinkActive="active">forgot password?</a>
           <a href="" class="btn btn-link btn-go" routerLink="/signUpA" routerLinkActive="active">Do not have an account
             yet?</a>
-          <a href="" class="btn btn-link btn-go" routerLink="/signInI" routerLinkActive="active">sign in for individual</a>
-          <a href="" class="btn btn-link btn-go" routerLink="/signUpI" routerLinkActive="active">sign up for individual</a>
+          <!-- <a href="" class="btn btn-link btn-go" routerLink="/signInI" routerLinkActive="active">sign in for individual</a>
+          <a href="" class="btn btn-link btn-go" routerLink="/signUpI" routerLinkActive="active">sign up for individual</a> -->
         </div>
       </div>
     </div>

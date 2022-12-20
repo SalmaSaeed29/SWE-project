@@ -34,7 +34,7 @@
                         <a class="nav-link active" aria-current="page" href="#">Donate</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Accepte</a>
+                        <a class="nav-link" href="#">Accept</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">About Us</a>
@@ -47,9 +47,10 @@
         <div class="proContent" style="max-width: 800px;">
             <div class="card p-5 border border-danger scroll-container">
                 <div class="row g-3">
-                    <label for="id" class="form-label">Do you suffer from communicable diseases such as...</label>
+                    <div class = "notice">*Please, fill these questions before completing your request1:</div>
+                    <label for="id" class="form-label">-Do you suffer from communicable diseases such as...</label>
                     <div class="col-md-6">
-                        <input class="form-check-input" type="checkbox" value="" id="AIDS">
+                        <input class="form-check-input" type="checkbox" value="aids" id="AIDS">
                         <label class="form-check-label" for="AIDS">
                             AIDS
                         </label><br>
@@ -66,30 +67,36 @@
                             Malaria
                         </label><br>
                     </div>
-                    <label for="id" class="form-label">Do you suffer from Hereditary blood diseases?</label>
-                    <div class="col-md-6">
-                        <input class="form-check-input" type="radio" id="bloodProblem">
-                        <label class="form-check-label" for="bloodProblem">
-                            Yes
-                        </label><br>
-                        <input class="form-check-input" type="radio" id="goodBlood" checked>
-                        <label class="form-check-label" for="goodBlood">
-                            No
-                        </label><br>
-                    </div>
-                    <label for="id" class="form-label">Do you suffer from severe anemia?</label>
-                    <div class="col-md-6">
-                        <input class="form-check-input" type="radio" id="animia">
-                        <label class="form-check-label" for="animia">
-                            Yes
-                        </label><br>
-                        <input class="form-check-input" type="radio" id="noAnimia" checked>
-                        <label class="form-check-label" for="noAnimia">
-                            No
-                        </label><br>
-                    </div>
+                    <form>
+                        <label for="id" class="form-label">Do you suffer from Hereditary blood diseases?</label>
+                        <div class="col-md-6">
+                            <br>
+                            <input class="form-check-input" type="radio" id="bloodProblem"
+                            name="agree"
+                            value="yes">Yes
+                            <br>
+                            <input class="form-check-input" type="radio" id="goodBlood"
+                            name="agree"
+                            value="no">No
+                            <br>
+                        </div>
+                    </form>
+                    <form>
+                        <label for="id" class="form-label">-Do you suffer from severe anemia?</label>
+                        <div class="col-md-6">
+                            <br>
+                            <input class="form-check-input" type="radio" id="anemia"
+                            name="agree"
+                            value="yes">Yes
+                            <br>
+                            <input class="form-check-input" type="radio" id="noAnemia"
+                            name="agree"
+                            value="no">No
+                            <br>
+                        </div>
+                    </form>
 
-                    <label for="id" class="form-label">Do you suffer from chronic diseases such as...</label>
+                    <label for="id" class="form-label">-Do you suffer from chronic diseases such as...</label>
                     <div class="col-md-6">
                         <input class="form-check-input" type="checkbox" value="" id="diabetes">
                         <label class="form-check-label" for="diabetes">
@@ -108,41 +115,50 @@
                             Severe heart disease
                         </label><br>
                     </div>
-                    <label for="id" class="form-label">Are you pregnant?</label>
-                    <div class="col-md-6">
-                        <input class="form-check-input" type="radio" id="pregnant">
-                        <label class="form-check-label" for="pregnant">
-                            Yes
-                        </label><br>
-                        <input class="form-check-input" type="radio" id="pregnantFalse" checked>
-                        <label class="form-check-label" for="pregnantFalse">
-                            No
-                        </label><br>
-                    </div>
-                    <label for="id" class="form-label">Do you have tattoos?</label>
-                    <div class="col-md-6">
-                        <input class="form-check-input" type="radio" id="tatto">
-                        <label class="form-check-label" for="tatto">
-                            Yes
-                        </label><br>
-                        <input class="form-check-input" type="radio" id="noTatto" checked>
-                        <label class="form-check-label" for="noTatto">
-                            No
-                        </label><br>
-                    </div>
-                    <label for="id" class="form-label">Have you donated blood within the past 12 months?</label>
-                    <div class="col-md-6">
-                        <input class="form-check-input" type="radio" id="pastDonate">
-                        <label class="form-check-label" for="pastDonate">
-                            Yes
-                        </label><br>
-                        <input class="form-check-input" type="radio" id="firstDonate" checked>
-                        <label class="form-check-label" for="firstDonate">
-                            No
-                        </label><br>
-                    </div>
+                    <form>
+                        <label for="id" class="form-label">-Are you pregnant?</label>
+                        <div class="col-md-6">
+                            <br>
+                            <input class="form-check-input" type="radio" id="pregnant"
+                            name="agree"
+                            value="yes">Yes
+                            <br>
+                            <input class="form-check-input" type="radio" id="pregnantFalse"
+                            name="agree"
+                            value="no">No
+                            <br>
+                        </div>
+                    </form> 
+                    <form>
+                        <label for="id" class="form-label">-Do you have tattoos?</label>
+                        <div class="col-md-6">
+                            <br>
+                            <input class="form-check-input" type="radio" id="tatto"
+                            name="agree"
+                            value="yes">Yes
+                            <br>
+                            <input class="form-check-input" type="radio" id="noTatto"
+                            name="agree"
+                            value="no">No
+                            <br>
+                        </div>
+                    </form>
+                    <form>
+                        <label for="id" class="form-label">-Have you donated blood within the past 12 months?</label>
+                        <div class="col-md-6">
+                            <br>
+                            <input class="form-check-input" type="radio" id="pastDonate"
+                            name="agree"
+                            value="yes">Yes
+                            <br>
+                            <input class="form-check-input" type="radio" id="firstDonate"
+                            name="agree"
+                            value="no">No
+                            <br>
+                        </div>
+                    </form>
                     <div class="col-md-12">
-                        <button class="btn btn-danger">Submit</button>
+                        <button class="btn btn-danger" (click)="isValidDonator()">Submit</button>
                     </div>
                 </div>
             </div>

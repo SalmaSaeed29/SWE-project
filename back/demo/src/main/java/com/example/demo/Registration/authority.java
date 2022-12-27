@@ -1,6 +1,6 @@
 package com.example.demo.Registration;
 
-public class authority {
+public class Authority {
     String email;
     String password;
     String name;

@@ -7,7 +7,7 @@ public class DB{
     static final String USER = "root";
     static final String PASS = "2972001333";
 
-    public String addUser(user newuser){
+    public String addUser(User newuser){
         boolean valid = validateID(newuser.getId());
         if (valid) {
             final String QUERY = "insert into userprofile values(" + newuser.getId() + ",\"" +
@@ -91,7 +91,7 @@ public class DB{
         return false;
     }
 
-    public String addAuthority(authority newAuth){
+    public String addAuthority(Authority newAuth){
         boolean valid = validateTAX(newAuth.getTax());
         if (valid){
             final String QUERY = "insert into authority values(\""+newAuth.getTax()
@@ -202,7 +202,7 @@ public class DB{
         return false;
     }
 
-    public user getUserData(long id, String pass){
+    public User getUserData(long id, String pass){
 //        user urData = new user();
         boolean ok = validateUser(id,pass);
         String QUERY = "SELECT * FROM systemdb.userprofile where id = "+id+";";
@@ -217,10 +217,12 @@ public class DB{
 
                 while(rs.next()){
                     //Display values
-                    registration.userData.setId(rs.getLong("id"));registration.userData.setName(rs.getString("userName"));
-                    registration.userData.setAge(rs.getInt("age"));registration.userData.setWeight(rs.getInt("weight"));
-                    registration.userData.setBloodtype(rs.getString("bloodtype"));
-                    registration.userData.setAddress(rs.getString("address")); registration.userData.setRegion(rs.getString("region"));
+                    Registration.userData.setId(rs.getLong("id"));
+                    Registration.userData.setName(rs.getString("userName"));
+                    Registration.userData.setAge(rs.getInt("age"));
+                    Registration.userData.setWeight(rs.getInt("weight"));
+                    Registration.userData.setBloodtype(rs.getString("bloodtype"));
+                    Registration.userData.setAddress(rs.getString("address")); Registration.userData.setRegion(rs.getString("region"));
                     System.out.print("ID: " + rs.getLong("id"));
                     System.out.print(", Name: " + rs.getString("userName"));
                     System.out.print(", age: " + rs.getInt("age"));
@@ -229,7 +231,7 @@ public class DB{
                     System.out.println(", address: " + rs.getString("address"));
                     System.out.println(", region: " + rs.getString("region"));
                 }
-                return registration.userData;
+                return Registration.userData;
             } catch (SQLException e) {
                 e.printStackTrace();
             }
@@ -335,7 +337,7 @@ public class DB{
         return false;
     }
 
-    public authority getAuthData(String tax, String pass){
+    public Authority getAuthData(String tax, String pass){
 //        authority urData = registration.authData;       //from registration class
         boolean ok = validateAuthority(tax, pass);
         String QUERY = "SELECT * FROM systemdb.authority where tax = '"+tax+"';";
@@ -354,17 +356,17 @@ public class DB{
 
                 while(rs.next()){
                     //Display values
-                    registration.authData.setEmail(rs.getString("email"));
-                    registration.authData.setPhone(rs.getString("phone"));
-                    registration.authData.setName(rs.getString("authName"));
-                    registration.authData.setAddress(rs.getString("address"));
-                    registration.authData.setCity(rs.getString("city"));
-                    registration.authData.setRegion(rs.getString("region"));
-                    registration.authData.setTax(rs.getString("tax"));
-                    registration.authData.setStartWork(rs.getString("workinghours_start"));
-                    registration.authData.setEndWork(rs.getString("workinghours_close"));
-                    registration.authData.setDonationtimeFrom(rs.getString("donationtimeFrom"));
-                    registration.authData.setDonationtimeTo(rs.getString("donationtimeTo"));
+                    Registration.authData.setEmail(rs.getString("email"));
+                    Registration.authData.setPhone(rs.getString("phone"));
+                    Registration.authData.setName(rs.getString("authName"));
+                    Registration.authData.setAddress(rs.getString("address"));
+                    Registration.authData.setCity(rs.getString("city"));
+                    Registration.authData.setRegion(rs.getString("region"));
+                    Registration.authData.setTax(rs.getString("tax"));
+                    Registration.authData.setStartWork(rs.getString("workinghours_start"));
+                    Registration.authData.setEndWork(rs.getString("workinghours_close"));
+                    Registration.authData.setDonationtimeFrom(rs.getString("donationtimeFrom"));
+                    Registration.authData.setDonationtimeTo(rs.getString("donationtimeTo"));
                     System.out.print("email: " + rs.getString("email"));
                     System.out.print(", name: " + rs.getString("authName"));
                     System.out.print(", address: " + rs.getString("address"));
@@ -377,16 +379,16 @@ public class DB{
 
                 }
                 while(rs1.next()){
-                    registration.authData.setE_Aplus(rs1.getInt("Aplus_exist")); registration.authData.setN_Aplus(rs1.getInt("Aplus_needed"));
-                    registration.authData.setE_Aminus(rs1.getInt("Aminus_exist")); registration.authData.setN_Aminus(rs1.getInt("Aminus_needed"));
-                    registration.authData.setE_Bplus(rs1.getInt("Bplus_exist")); registration.authData.setN_Bplus(rs1.getInt("Bplus_needed"));
-                    registration.authData.setE_Bminus(rs1.getInt("Bminus_exist")); registration.authData.setN_Bminus(rs1.getInt("Bminus_needed"));
-                    registration.authData.setE_ABplus(rs1.getInt("ABplus_exist")); registration.authData.setN_ABplus(rs1.getInt("ABplus_needed"));
-                    registration.authData.setE_ABminus(rs1.getInt("ABminus_exist")); registration.authData.setN_ABminus(rs1.getInt("ABminus_needed"));
-                    registration.authData.setE_Oplus(rs1.getInt("Oplus_exist")); registration.authData.setN_Oplus(rs1.getInt("Oplus_needed"));
-                    registration.authData.setE_Ominus(rs1.getInt("Ominus_exist")); registration.authData.setN_Ominus(rs1.getInt("Ominus_needed"));
+                    Registration.authData.setE_Aplus(rs1.getInt("Aplus_exist")); Registration.authData.setN_Aplus(rs1.getInt("Aplus_needed"));
+                    Registration.authData.setE_Aminus(rs1.getInt("Aminus_exist")); Registration.authData.setN_Aminus(rs1.getInt("Aminus_needed"));
+                    Registration.authData.setE_Bplus(rs1.getInt("Bplus_exist")); Registration.authData.setN_Bplus(rs1.getInt("Bplus_needed"));
+                    Registration.authData.setE_Bminus(rs1.getInt("Bminus_exist")); Registration.authData.setN_Bminus(rs1.getInt("Bminus_needed"));
+                    Registration.authData.setE_ABplus(rs1.getInt("ABplus_exist")); Registration.authData.setN_ABplus(rs1.getInt("ABplus_needed"));
+                    Registration.authData.setE_ABminus(rs1.getInt("ABminus_exist")); Registration.authData.setN_ABminus(rs1.getInt("ABminus_needed"));
+                    Registration.authData.setE_Oplus(rs1.getInt("Oplus_exist")); Registration.authData.setN_Oplus(rs1.getInt("Oplus_needed"));
+                    Registration.authData.setE_Ominus(rs1.getInt("Ominus_exist")); Registration.authData.setN_Ominus(rs1.getInt("Ominus_needed"));
                 }
-                return registration.authData;
+                return Registration.authData;
             } catch (SQLException e) {
                 e.printStackTrace();
             }

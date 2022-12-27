@@ -18,6 +18,7 @@ import { DonationComponent } from './donation/donation.component'
 import { InvalidDonateComponent } from './invalidDonate/invalidDonate.component'
 import { AcceptionListComponent } from './acception-list/aList.component'
 import { DonationListComponent } from './donation-list/dList.component'
+import { HelperComponent } from './Helper/Helper.component'
 
 const routes: Routes = [
   { path: '' ,redirectTo: 'home' , pathMatch: 'full' },
@@ -38,7 +39,8 @@ const routes: Routes = [
   { path: 'donation', component:DonationComponent},
   { path: 'invalidDonate', component:InvalidDonateComponent},
   { path: 'acceptList', component:AcceptionListComponent},
-  { path: 'donateList', component:DonationListComponent}
+  { path: 'donateList', component:DonationListComponent},
+  { path: 'helper', component:HelperComponent}
 ];
 
 @NgModule({

@@ -21,6 +21,7 @@ import { DonationComponent } from './donation/donation.component'
 import { InvalidDonateComponent } from './invalidDonate/invalidDonate.component'
 import { AcceptionListComponent } from './acception-list/aList.component'
 import { DonationListComponent } from './donation-list/dList.component'
+import { HelperComponent } from './Helper/Helper.component'
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
 
 @NgModule({
@@ -42,9 +43,11 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
     DonationComponent,
     InvalidDonateComponent,
     AcceptionListComponent,
-    DonationListComponent
+    DonationListComponent,
+    HelperComponent
   ],
   imports: [
+    
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,

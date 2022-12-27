@@ -1,22 +1,22 @@
 package com.example.demo.Registration;
 import com.example.demo.DataBase.DB;
 
-public class registrationController {
-    public Boolean checkID(int id){
-
-    return true;
-    }
-    public Boolean checkEmail(){
-        return true;
-    }
-    public Boolean checkPassword(){
-        return true;
-    }
-    public void createUserAcc(){
-
-    }
-    public void createAuthrityAcc(){
-    }
+public class RegistrationController {
+//    public Boolean checkID(int id){
+//
+//    return true;
+//    }
+//    public Boolean checkEmail(){
+//        return true;
+//    }
+//    public Boolean checkPassword(){
+//        return true;
+//    }
+//    public void createUserAcc(){
+//
+//    }
+//    public void createAuthrityAcc(){
+//    }
 
     public boolean validateUserInfo( long id,  String password){
         DB start = new DB();
@@ -26,9 +26,9 @@ public class registrationController {
         return false;
     }
 
-    public boolean validateAuthorityInfo( String email,  String password){
+    public boolean validateAuthorityInfo( String tax,  String password){
         DB start = new DB();
-        Boolean V = start.validateAuthority(email, password);
+        Boolean V = start.validateAuthority(tax, password);
         if(V) {
             return true;
         }

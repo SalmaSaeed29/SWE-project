@@ -1,6 +1,6 @@
 package com.example.demo.Registration;
 
-public class user {
+public class User {
     long id;
     String password;
     String name;

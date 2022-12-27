@@ -1,23 +1,22 @@
 package com.example.demo.Registration;
 
 import com.example.demo.DataBase.DB;
-import com.example.demo.Registration.*;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @CrossOrigin
 @RequestMapping("/savior")
 
-public class registration {
+public class Registration {
 
-    enum Response {
-        DONE, ERROR, NOT_FOUND
-    }
+//    enum Response {
+//        DONE, ERROR, NOT_FOUND
+//    }
 
-    public static user userData = new user();
+    public static User userData = new User();
     @GetMapping("/signInI")
     public String signIn(@RequestParam long id, @RequestParam String password){
-        registrationController x = new registrationController();
+        RegistrationController x = new RegistrationController();
         boolean valid = x.validateUserInfo(id, password);
         if (valid){
             DB profile = new DB();
@@ -77,10 +76,10 @@ public class registration {
         return userData.getBloodtype();
     }
 
-    public static authority authData = new authority();
+    public static Authority authData = new Authority();
     @GetMapping("/signInA")
     public String signIn(@RequestParam String tax, @RequestParam String password){
-        registrationController x = new registrationController();
+        RegistrationController x = new RegistrationController();
         boolean valid = x.validateAuthorityInfo(tax, password);
         if (valid){
             DB profile = new DB();
